@@ -9,7 +9,7 @@ describe("roteiro do simulador", () => {
       vistas.push(PASSOS[i].tela);
       i = proximo(i);
     }
-    expect(vistas).toEqual(["dashboard", "contatos", "conversas", "empresas", "funil"]);
+    expect(vistas).toEqual(["dashboard", "contatos", "conversas", "empresas", "funil", "agentes"]);
     expect(i).toBe(0);
   });
 

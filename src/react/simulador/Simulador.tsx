@@ -11,6 +11,7 @@ import { Contatos } from "./telas/Contatos";
 import { Conversas } from "./telas/Conversas";
 import { Empresas } from "./telas/Empresas";
 import { Funil } from "./telas/Funil";
+import { Agentes } from "./telas/Agentes";
 import { PASSOS, TELAS, indiceDaTela, proximo, type Tela } from "./roteiro";
 
 const ICONES: Record<Tela, React.ComponentType<{ className?: string }>> = {
@@ -19,6 +20,7 @@ const ICONES: Record<Tela, React.ComponentType<{ className?: string }>> = {
   conversas: IconeWhatsapp,
   empresas: Building2,
   funil: Kanban,
+  agentes: Bot,
 };
 
 const TITULOS: Record<Tela, { titulo: string; sub: string }> = {
@@ -27,6 +29,7 @@ const TITULOS: Record<Tela, { titulo: string; sub: string }> = {
   conversas: { titulo: "Conversas", sub: "WhatsApp: quem está esperando resposta" },
   empresas: { titulo: "Empresas", sub: "Cadastro, contatos e negociações" },
   funil: { titulo: "Funil de vendas", sub: "Arraste os cards entre as etapas" },
+  agentes: { titulo: "Agentes iA", sub: "Quem atende primeiro no WhatsApp da conta" },
 };
 
 export default function Simulador() {
@@ -57,7 +60,7 @@ export default function Simulador() {
     setRodada((r) => r + 1);
   };
 
-  const Tela = { dashboard: Dashboard, contatos: Contatos, conversas: Conversas, empresas: Empresas, funil: Funil }[passo.tela];
+  const Tela = { dashboard: Dashboard, contatos: Contatos, conversas: Conversas, empresas: Empresas, funil: Funil, agentes: Agentes }[passo.tela];
 
   return (
     <div
@@ -79,25 +82,20 @@ export default function Simulador() {
                   <button
                     type="button"
                     onClick={() => irPara(t.id)}
+                    style={t.id === "agentes" ? { marginTop: 6, borderTop: "1px solid #1b4864", paddingTop: 10 } : undefined}
                     aria-current={ativo ? "true" : undefined}
                     className={`relative flex w-full flex-col items-center gap-1 rounded-xl px-1 py-2 text-[9px] font-medium leading-tight transition-colors sm:text-[10px] ${
                       ativo ? "bg-navy-light text-white" : "hover:bg-navy-light/60 hover:text-white"
                     }`}
                   >
                     <span className={`absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full ${ativo ? "bg-brand-light" : "bg-transparent"}`} />
+                    {t.id === "agentes" && <span className="absolute right-2 top-2 size-1.5 rounded-full bg-success" />}
                     <I className={`size-5 ${ativo ? "text-brand-light" : ""}`} />
                     <span className="hidden sm:block">{t.label.replace(" de vendas", "")}</span>
                   </button>
                 </li>
               );
             })}
-            <li className="mt-1 border-t border-sidebar-line pt-1.5">
-              <div className="relative flex flex-col items-center gap-1 rounded-xl px-1 py-2 text-[9px] font-medium leading-tight sm:text-[10px]">
-                <span className="absolute right-2 top-1.5 size-1.5 rounded-full bg-success" />
-                <Bot className="size-5" />
-                <span className="hidden sm:block">Agentes iA</span>
-              </div>
-            </li>
           </ul>
         </nav>
 

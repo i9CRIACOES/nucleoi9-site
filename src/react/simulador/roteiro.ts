@@ -2,7 +2,7 @@
  * O roteiro do simulador: qual tela, por quanto tempo, e a próxima. Puro,
  * para o teste conferir o avanço e o laço sem montar React.
  */
-export type Tela = "dashboard" | "contatos" | "conversas" | "empresas" | "funil";
+export type Tela = "dashboard" | "contatos" | "conversas" | "empresas" | "funil" | "agentes";
 
 export type Passo = { tela: Tela; duracao: number };
 
@@ -14,6 +14,8 @@ export const PASSOS: Passo[] = [
   { tela: "conversas", duracao: 7500 },
   { tela: "empresas", duracao: 4500 },
   { tela: "funil", duracao: 8000 },
+  // Agentes iA: status, três conversas sendo respondidas, desliga e religa.
+  { tela: "agentes", duracao: 9500 },
 ];
 
 export const TELAS: { id: Tela; label: string }[] = [
@@ -22,6 +24,7 @@ export const TELAS: { id: Tela; label: string }[] = [
   { id: "conversas", label: "Conversas" },
   { id: "empresas", label: "Empresas" },
   { id: "funil", label: "Funil de vendas" },
+  { id: "agentes", label: "Agentes iA" },
 ];
 
 export function proximo(indice: number): number {
