@@ -145,17 +145,22 @@ export const BENEFICIOS = {
 export const COMPARATIVO = {
   titulo: ["Troque várias assinaturas", "por uma."],
   sub: "Centralize comercial e atendimento num lugar e pare de pagar por ferramenta que não conversa com a outra.",
+  // Valores de referência: os mesmos do comparativo público da WeSales
+  // (wesalescrm.com), colhidos em 15/10/2026. "≈" é estimativa deles.
   linhas: [
-    { ferramenta: "CRM e gestão de pipeline", concorrente: "RD Station" },
-    { ferramenta: "Funis de vendas ilimitados", concorrente: "ClickFunnels" },
-    { ferramenta: "Relatórios e dashboards", concorrente: "Looker Studio Pro" },
-    { ferramenta: "Automação em grupos de WhatsApp", concorrente: "BotConversa" },
-    { ferramenta: "Assinatura de documento e envio de proposta", concorrente: "Clicksign" },
-    { ferramenta: "Agentes de IA de mensagem", concorrente: "Blip" },
-    { ferramenta: "Inteligências artificiais", concorrente: "Anthropic, ChatGPT" },
-    { ferramenta: "Usuários ilimitados", concorrente: "Cobrado por assento" },
+    { ferramenta: "CRM e gestão de pipeline", concorrente: "RD Station + Kommo", logos: ["/concorrentes/rdstation-com.png", "/concorrentes/kommo-com.png"], preco: "R$ 524/mês*" },
+    { ferramenta: "Funis de vendas ilimitados", concorrente: "ClickFunnels", logos: ["/concorrentes/clickfunnels-com.png"], preco: "≈ R$ 501/mês" },
+    { ferramenta: "Relatórios e dashboards", concorrente: "Looker Studio Pro", logos: ["/concorrentes/google-com.png"], preco: "≈ R$ 46/mês" },
+    { ferramenta: "Automação em grupos de WhatsApp", concorrente: "BotConversa", logos: ["/concorrentes/botconversa-com.png"], preco: "R$ 297/mês" },
+    { ferramenta: "Assinatura de documento e envio de proposta", concorrente: "Clicksign", logos: ["/concorrentes/clicksign-com.png"], preco: "R$ 59/mês" },
+    { ferramenta: "Agentes de IA de mensagem", concorrente: "Blip", logos: ["/concorrentes/blip-ai.png"], preco: "R$ 299/mês" },
+    { ferramenta: "Inteligências artificiais", concorrente: "Anthropic, ChatGPT", logos: ["/concorrentes/anthropic.png", "/concorrentes/chatgpt.png"], preco: "Assinatura à parte" },
+    { ferramenta: "Usuários ilimitados", concorrente: "Cobrado por assento", logos: [], preco: "Por usuário" },
   ],
   incluso: "Incluso",
+  totalSeparado: { rotulo: "Ferramentas separadas", valor: "Mais de R$ 1.700/mês" },
+  totalNucleo: { rotulo: "No Núcleo i9", valor: "Uma assinatura" },
+  nota: "* Valores de referência de out/2026, conforme comparativo público do mercado; podem mudar sem aviso.",
   garantias: ["Risco zero", "Satisfação garantida", "Não exigimos fidelidade"],
 };
 

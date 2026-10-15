@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { BENEFICIOS, CLIENTES, I9, MENU, PLANOS, SOLUCOES } from "./conteudo";
+import { BENEFICIOS, CLIENTES, COMPARATIVO, I9, MENU, PLANOS, SOLUCOES } from "./conteudo";
 
 const publico = join(process.cwd(), "public");
 
@@ -10,6 +10,7 @@ describe("conteúdo do site", () => {
     for (const l of [...CLIENTES.logos, ...I9.certificacoes]) {
       expect(existsSync(join(publico, l.arquivo)), l.arquivo).toBe(true);
     }
+    for (const l of COMPARATIVO.linhas) for (const src of l.logos) expect(existsSync(join(publico, src)), src).toBe(true);
   });
 
   it("não há item vazio nas listas", () => {
