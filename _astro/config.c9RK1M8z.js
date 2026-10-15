@@ -1,0 +1,1 @@
+var e=`nucleoi9.com.br`,t=`https://vlefjonkoqopiqsroywk.supabase.co`,n=`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZsZWZqb25rb3FvcGlxc3JveXdrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkxNDY1MTUsImV4cCI6MjEwNDcyMjUxNX0.7d0afKkyiySuq7OIHvCB5XIKDEKVytMKRlsGlid6bRc`,r=`/api/lista-espera`;export{t as i,r as n,n as r,e as t};
