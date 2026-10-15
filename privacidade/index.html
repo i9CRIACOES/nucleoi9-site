@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade | Núcleo i9</title>
+<meta name="description" content="Como o Núcleo i9 trata dados pessoais, incluindo dados recebidos da Meta.">
+<meta name="theme-color" content="#0b2436">
+<link rel="icon" href="/img/logo-nucleoi9.png" type="image/png">
+<link rel="canonical" href="https://www.nucleoi9.com.br/privacidade/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#0075be;
+  --brand-dark:#00538a;
+  --brand-deep:#184e6c;
+  --brand-ink:#0b2436;
+  --brand-light:#46b2e9;
+  --accent:#35cc62;
+  --bg:#f5f8fa;
+  --surface:#ffffff;
+  --fg:#0b1a24;
+  --fg-muted:#4c6373;
+  --border:#dde6ec;
+  --chip:#e7f2fa;
+  --radius:16px;
+  --radius-lg:28px;
+  --shadow-sm:0 1px 2px rgba(11,36,54,.06),0 1px 3px rgba(11,36,54,.05);
+  --shadow-md:0 4px 12px rgba(11,36,54,.07),0 12px 28px rgba(11,36,54,.06);
+  --maxw:1120px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:"Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:Poppins,"Open Sans",Arial,sans-serif;line-height:1.2;letter-spacing:-.015em;margin:0}
+p{margin:0}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--brand-dark)}
+:focus-visible{outline:3px solid var(--brand-light);outline-offset:3px;border-radius:6px}
+.shell{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;z-index:50;background:#fff;padding:10px 16px;border-radius:8px;box-shadow:var(--shadow-md)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.header-row{display:flex;align-items:center;gap:16px;min-height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex:0 0 auto}
+.brand img{width:84px}
+.status-unused{
+  display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;
+  background:var(--chip);color:var(--brand-dark);border:1px solid #c9e2f3;
+  font-size:.75rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;
+}
+.status .dot{width:7px;height:7px;border-radius:50%;background:var(--brand);flex:0 0 auto}
+.header-cta{margin-left:auto}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;padding:12px 22px;border-radius:12px;border:1px solid transparent;
+  font-family:Poppins,sans-serif;font-size:.9375rem;font-weight:600;text-decoration:none;cursor:pointer;
+  transition:background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease);
+}
+.btn svg{width:19px;height:19px;flex:0 0 auto}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--brand-dark)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7)}
+.btn-outline{background:var(--surface);color:var(--brand-dark);border-color:#c5dcec}
+.btn-outline:hover{background:var(--chip);border-color:var(--brand)}
+.btn-sm{min-height:42px;padding:9px 18px;font-size:.875rem}
+
+/* hero */
+.hero{padding:28px 0 0}
+.hero-panel{
+  position:relative;overflow:hidden;border-radius:var(--radius-lg);
+  background:linear-gradient(155deg,#0b2436 0%,#13415d 58%,#00538a 100%);
+  color:#fff;padding:clamp(34px,5.5vw,68px) clamp(22px,5vw,64px) clamp(30px,5vw,60px);
+}
+.hero-panel::after{
+  content:"";position:absolute;inset:auto -120px -220px auto;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(70,178,233,.32),transparent 68%);pointer-events:none;
+}
+.hero-inner{position:relative;max-width:46rem}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+  font-family:Poppins,sans-serif;font-size:.8125rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;color:#9fd4f2;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+h1{font-size:clamp(2rem,6.2vw,3.5rem);font-weight:700}
+h1 .mark{color:#7fcdf5}
+h1 .under{white-space:nowrap;padding:0 .08em;border-radius:4px;background-image:linear-gradient(90deg,rgba(53,204,98,.9),rgba(70,178,233,.9));background-repeat:no-repeat;background-position:0 86%;background-size:100% .26em}
+.hero-sub{margin-top:20px;max-width:34rem;font-size:clamp(1rem,2.3vw,1.1875rem);color:#cfe4f0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-note{margin-top:20px;font-size:.875rem;color:#9bb8ca}
+
+/* features */
+.features{padding:clamp(48px,7vw,84px) 0 clamp(36px,5vw,56px)}
+.section-head{max-width:38rem;margin-bottom:clamp(28px,4vw,44px)}
+.section-head h2{font-size:clamp(1.5rem,3.6vw,2.125rem);font-weight:600}
+.section-head p{margin-top:12px;color:var(--fg-muted)}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow-sm);
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease);
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#c5dcec}
+.card .ico{
+  width:44px;height:44px;border-radius:12px;background:var(--chip);color:var(--brand);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.card .ico svg{width:23px;height:23px}
+.card h3{font-size:1.0625rem;font-weight:600;margin-bottom:8px}
+.card p{color:var(--fg-muted);font-size:.9375rem}
+
+/* closing */
+.closing{padding:0 0 clamp(52px,7vw,88px)}
+.closing-box{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:clamp(28px,5vw,52px);box-shadow:var(--shadow-sm);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+}
+.closing-box h2{font-size:clamp(1.375rem,3.2vw,1.875rem);font-weight:600;max-width:26rem}
+.closing-box p{margin-top:10px;color:var(--fg-muted);max-width:28rem}
+.closing-actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* footer */
+.site-footer{border-top:1px solid var(--border);background:var(--surface);padding:28px 0}
+.footer-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;justify-content:space-between;font-size:.875rem;color:var(--fg-muted)}
+.footer-row a{color:var(--brand-dark);text-decoration:none}
+.footer-row a:hover{text-decoration:underline}
+
+@media (min-width:640px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1024px){
+  .grid{grid-template-columns:repeat(3,1fr);gap:20px}
+  .hero{padding-top:40px}
+}
+@media (max-width:420px){
+  .status-unused{display:none}
+  .btn{width:100%}
+  .hero-actions .btn{width:100%}
+}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s var(--ease) forwards}
+  .reveal:nth-child(1){animation-delay:.04s}
+  .reveal:nth-child(2){animation-delay:.09s}
+  .reveal:nth-child(3){animation-delay:.14s}
+  .reveal:nth-child(4){animation-delay:.19s}
+  .reveal:nth-child(5){animation-delay:.24s}
+  .reveal:nth-child(6){animation-delay:.29s}
+  @keyframes rise{to{opacity:1;transform:none}}
+}
+
+/* footer legal */
+.footer-legal{display:flex;flex-direction:column;gap:14px;font-size:.875rem;color:var(--fg-muted)}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 22px}
+.footer-links a{color:var(--brand-dark);text-decoration:none;font-weight:600}
+.footer-links a:hover{text-decoration:underline}
+.footer-id{line-height:1.7}
+/* legal pages */
+.legal{padding:clamp(32px,5vw,56px) 0 clamp(52px,7vw,88px)}
+.legal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:clamp(24px,5vw,56px);max-width:52rem;margin-inline:auto}
+.legal h1{font-size:clamp(1.75rem,4.6vw,2.5rem);font-weight:700;color:var(--brand-ink)}
+.legal .updated{margin-top:10px;color:var(--fg-muted);font-size:.9375rem}
+.legal h2{font-size:clamp(1.1875rem,2.6vw,1.4375rem);font-weight:600;margin:38px 0 12px;color:var(--brand-ink)}
+.legal h3{font-size:1.0625rem;font-weight:600;margin:24px 0 8px}
+.legal p{margin:0 0 14px}
+.legal ul,.legal ol{margin:0 0 16px;padding-left:1.3rem}
+.legal li{margin-bottom:8px}
+.legal .lead{font-size:1.0625rem;margin-top:22px}
+.legal .callout{background:var(--chip);border:1px solid #c9e2f3;border-radius:var(--radius);padding:18px 20px;margin:18px 0}
+.legal .callout p:last-child{margin-bottom:0}
+.back{display:inline-block;margin-bottom:18px;font-size:.9375rem;text-decoration:none;font-weight:600}
+/* new home sections */
+.integrations,.audience{padding:0 0 clamp(40px,6vw,64px)}
+.note{margin-top:20px;max-width:46rem;color:var(--fg-muted);font-size:.9375rem}
+.grid-2{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:760px){.grid-2{grid-template-columns:repeat(2,1fr);gap:20px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header">
+  <div class="shell header-row">
+    <a class="brand" href="/" aria-label="Núcleo i9, página inicial">
+      <img src="/img/logo-nucleoi9.png" alt="Núcleo i9" width="109" height="62">
+    </a>
+    <div class="header-cta">
+      <a class="btn btn-outline btn-sm" href="https://i9criacoes.com.br/" rel="noopener">i9 Criações</a>
+    </div>
+  </div>
+</header>
+<main id="conteudo" class="legal">
+  <div class="shell">
+    <article class="legal-box">
+      <a class="back" href="/">&larr; Voltar para o Núcleo i9</a>
+
+<h1>Política de Privacidade do Núcleo i9</h1>
+<p class="updated">Última atualização: 6 de outubro de 2026</p>
+
+<p class="lead">Esta política explica como a Marcelo de Souza Almeida Criações Ltda., nome fantasia i9 Criações, CNPJ 12.679.715/0001-00, com sede na Rua Apeninos, 681, Aclimação, São Paulo/SP, CEP 01533-000 ("i9 Criações", "nós"), trata dados pessoais no Núcleo i9, o CRM que oferecemos por assinatura em nucleoi9.com.br.</p>
+
+<h2>1. Quem decide e quem processa os dados</h2>
+<p>O Núcleo i9 é usado por empresas, nossos clientes, para organizar os próprios contatos, negociações e atendimentos.</p>
+<ul>
+<li>Para os dados dos contatos, leads e clientes que cada empresa coloca ou recebe no CRM, <strong>a empresa cliente é a controladora</strong> e a i9 Criações atua como <strong>operadora</strong>, tratando os dados em nome dela e conforme as instruções dela.</li>
+<li>Para os dados de cadastro e de uso das pessoas que acessam o CRM (nome, e-mail, login), a i9 Criações é a controladora.</li>
+</ul>
+
+<h2>2. Quais dados tratamos</h2>
+<h3>Dados dos usuários do CRM</h3>
+<p>Nome, e-mail, telefone, empresa, cargo, registros de acesso e de uso.</p>
+<h3>Dados que a empresa cliente coloca no CRM</h3>
+<p>Contatos, histórico de negociações, tarefas, anotações, documentos e contratos.</p>
+<h3>Dados recebidos da Meta (Facebook, Instagram e WhatsApp)</h3>
+<p>Somente quando a empresa cliente conecta as contas dela e autoriza o acesso:</p>
+<ul>
+<li><strong>Leads de formulários de anúncios:</strong> os campos que a pessoa preencheu no formulário (por exemplo, nome, e-mail e telefone), a data do envio e a identificação do formulário, da página e do anúncio.</li>
+<li><strong>Dados de anúncios:</strong> nomes e identificações de campanhas, conjuntos e anúncios, e métricas de desempenho, como alcance, cliques e custo.</li>
+<li><strong>Páginas e contas:</strong> nome e identificação das páginas do Facebook, contas do Instagram, contas de anúncio e portfólios empresariais que a empresa escolheu conectar.</li>
+<li><strong>WhatsApp:</strong> mensagens enviadas e recebidas pelo número da empresa cliente, número de telefone e nome de perfil de quem conversa, e status de entrega das mensagens.</li>
+<li><strong>Dados de acesso:</strong> os tokens de autorização gerados pela Meta, que guardamos criptografados.</li>
+</ul>
+<p>Só acessamos os ativos que a empresa cliente seleciona na tela de autorização da Meta.</p>
+
+<h2>3. Para que usamos os dados da Meta</h2>
+<p>Usamos os dados recebidos da Meta <strong>somente para prestar o serviço do Núcleo i9 à empresa que autorizou a conexão</strong>:</p>
+<ol>
+<li>Colocar automaticamente no CRM os leads dos formulários de anúncio, para que a equipe da empresa responda rápido.</li>
+<li>Mostrar à empresa de qual campanha e anúncio veio cada lead, e o resultado das campanhas.</li>
+<li>Permitir que a empresa envie e receba mensagens de WhatsApp dentro do CRM, com o histórico de atendimento.</li>
+</ol>
+<div class="callout">
+<p>Não vendemos dados recebidos da Meta. Não usamos esses dados para publicidade própria, para criar perfis de pessoas nem para atender outra empresa. Os dados de uma empresa cliente nunca são usados para outra. Não usamos dados recebidos da Meta para treinar modelos de inteligência artificial.</p>
+</div>
+
+<h2>4. Base legal</h2>
+<p>Tratamos dados com base na Lei Geral de Proteção de Dados (Lei 13.709/2018):</p>
+<ul>
+<li>Execução do contrato com a empresa cliente e com os usuários do CRM (art. 7º, V).</li>
+<li>Cumprimento de obrigação legal (art. 7º, II), quando aplicável.</li>
+<li>Legítimo interesse (art. 7º, IX), para segurança, prevenção a fraudes e melhoria do serviço.</li>
+</ul>
+<p>Nos dados em que atuamos como operadora, a definição da base legal cabe à empresa cliente.</p>
+
+<h2>5. Com quem compartilhamos</h2>
+<p>Compartilhamos dados apenas com fornecedores necessários para o funcionamento do serviço, que os tratam em nosso nome:</p>
+<ul>
+<li><strong>Meta Platforms</strong> (Facebook, Instagram e WhatsApp): origem e destino das integrações autorizadas.</li>
+<li><strong>Supabase:</strong> banco de dados, com servidores em São Paulo, Brasil.</li>
+<li><strong>Servidor dedicado contratado pela i9 Criações:</strong> hospedagem da aplicação.</li>
+<li><strong>Zernio:</strong> intermediário de envio e recebimento de mensagens de WhatsApp, quando usado.</li>
+<li><strong>Resend:</strong> envio de e-mails do sistema.</li>
+<li><strong>ZapSign:</strong> assinatura eletrônica de contratos, quando a empresa usa esse recurso.</li>
+<li><strong>Fornecedor de inteligência artificial:</strong> processamento de mensagens, apenas quando a empresa ativa esse recurso.</li>
+</ul>
+<p>Também podemos compartilhar dados quando a lei ou uma ordem judicial exigir.</p>
+
+<h2>6. Transferência internacional</h2>
+<p>Alguns fornecedores podem tratar dados fora do Brasil. Nesses casos, adotamos as garantias previstas na LGPD, como cláusulas contratuais de proteção de dados.</p>
+
+<h2>7. Por quanto tempo guardamos</h2>
+<p>Guardamos os dados enquanto a empresa cliente tiver assinatura ativa. Depois do cancelamento, os dados ficam disponíveis por 90 dias para que a empresa possa exportá-los e então são excluídos, salvo o que a lei obrigar a manter.</p>
+<p>Quando a empresa desconecta a conta da Meta, os tokens de acesso são apagados e paramos de receber novos dados.</p>
+
+<h2>8. Segurança</h2>
+<p>Os dados de cada empresa cliente ficam separados dos das outras. Usamos conexão criptografada (HTTPS), tokens guardados de forma criptografada, controle de acesso por usuário e cópias de segurança.</p>
+
+<h2>9. Seus direitos</h2>
+<p>Você pode pedir confirmação de tratamento, acesso, correção, anonimização, portabilidade, exclusão e informações sobre compartilhamento, além de revogar o consentimento quando ele for a base legal.</p>
+<p>Se os seus dados estão no CRM porque você é contato ou lead de uma empresa que usa o Núcleo i9, o ideal é falar primeiro com essa empresa. Se preferir, escreva para nós e encaminharemos o pedido a ela.</p>
+<p>Para excluir dados recebidos da Meta, veja a página <a href="/exclusao-de-dados/">Exclusão de dados</a>.</p>
+
+<h2>10. Encarregado de dados</h2>
+<p>Pedidos e dúvidas sobre dados pessoais: <a href="mailto:privacidade@nucleoi9.com.br">privacidade@nucleoi9.com.br</a>.</p>
+<!-- PENDENTE: incluir o nome do encarregado (DPO), exigido pela ANPD (Resolução CD/ANPD 18/2024). -->
+
+<h2>11. Alterações</h2>
+<p>Podemos atualizar esta política. A data no topo mostra a versão em vigor. Mudanças importantes serão avisadas aos clientes por e-mail ou dentro do CRM.</p>
+
+    </article>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="shell footer-legal">
+    <nav class="footer-links" aria-label="Documentos legais">
+      <a href="/privacidade/">Política de Privacidade</a>
+      <a href="/termos/">Termos de Uso</a>
+      <a href="/exclusao-de-dados/">Exclusão de dados</a>
+      <a href="mailto:contato@nucleoi9.com.br">contato@nucleoi9.com.br</a>
+    </nav>
+    <p class="footer-id">Núcleo i9 é um produto da <a href="https://i9criacoes.com.br/" rel="noopener">i9 Criações</a>.<br>
+    Marcelo de Souza Almeida Criações Ltda. · CNPJ 12.679.715/0001-00 · São Paulo/SP<br>
+    &copy; 2026 i9 Criações</p>
+  </div>
+</footer>
+</body>
+</html>

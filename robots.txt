@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /entrar
+
+Sitemap: https://nucleoi9.com.br/sitemap.xml
