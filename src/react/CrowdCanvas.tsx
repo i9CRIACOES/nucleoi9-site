@@ -117,7 +117,8 @@ export default function CrowdCanvas({ src, rows = 15, cols = 7 }: Props) {
       const rw = w / rows;
       const rh = h / cols;
       // Pessoas menores que no original: o hero é alto e elas são só textura.
-      const escala = 0.62;
+      // No celular, menores ainda, senão três pessoas tomam a tela.
+      const escala = window.innerWidth < 640 ? 0.36 : window.innerWidth < 1024 ? 0.5 : 0.62;
       for (let i = 0; i < rows * cols; i++) {
         todos.push({
           rect: [(i % rows) * rw, Math.floor(i / rows) * rh, rw, rh],
