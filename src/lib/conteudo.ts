@@ -22,6 +22,7 @@ export const MENU: ItemMenu[] = [
   { id: "painel", label: "Painel", icone: "LayoutDashboard" },
   { id: "solucoes", label: "Soluções", icone: "Boxes" },
   { id: "agentes", label: "Agentes iA", icone: "Bot" },
+  { id: "memoria", label: "Memória", icone: "BrainCircuit" },
   { id: "bolso", label: "No bolso", icone: "Smartphone" },
   { id: "beneficios", label: "Benefícios", icone: "Sparkles" },
   { id: "planos", label: "Planos", icone: "CreditCard" },
@@ -108,6 +109,18 @@ export const AGENTES = {
     { de: "ia", texto: "Quinta às 15h está livre. Confirmo no seu nome, Juliana?" },
     { de: "cliente", texto: "Pode confirmar!" },
     { de: "sistema", texto: "Avaliação agendada · quinta 15h · oportunidade criada no funil" },
+  ],
+};
+
+export const MEMORIA = {
+  selo: "Nada se perde",
+  titulo: ["Sua equipe pode", "até esquecer.", "O Núcleo i9", "jamais esquece."],
+  sub: "A inteligência artificial não te deixa perder nada. Saiba tudo o que ela e os seus colaboradores têm acesso a todo momento: o que foi dito, o que foi tratado, o que ficou combinado. Nada se perde. Novos conhecimentos se criam.",
+  pontos: [
+    { icone: "AudioLines", titulo: "Áudio vira texto", texto: "Mensagem de voz chega transcrita e resumida no histórico." },
+    { icone: "History", titulo: "Cada toque registrado", texto: "Mensagem, ligação, reunião, proposta: tudo na linha do tempo da pessoa." },
+    { icone: "BrainCircuit", titulo: "Conhecimento que cresce", texto: "O que o cliente prefere, o que já disse não, o que pediu: a iA aprende e a equipe vê." },
+    { icone: "Users", titulo: "Todo mundo na mesma página", texto: "Quem assume a conversa amanhã sabe tudo o que aconteceu hoje." },
   ],
 };
 

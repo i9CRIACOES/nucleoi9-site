@@ -119,6 +119,16 @@ html.preloader::before {
   pointer-events: none;
 }
 
+/* Encenações (simulador, memória): entrada e onda de áudio. */
+@keyframes simEntra {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes simOnda {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
 /* Grade de logos: cinza, colore no hover. */
 /* Os PNGs do site da i9 têm o logo pequeno no meio de um quadrado: a escala
    compensa a margem embutida. */

@@ -1,0 +1,34 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { MEMORIA } from "../../lib/conteudo";
+import MemoriaAoVivo from "../../react/MemoriaAoVivo";
+---
+
+<Secao id="memoria" class="bg-white">
+  <div class="grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+    <div class="lg:sticky lg:top-24">
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-chip px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand" data-anim="sobe">
+        <Icone nome="BrainCircuit" class="size-4" />
+        {MEMORIA.selo}
+      </p>
+      <Titulo linhas={MEMORIA.titulo} />
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted" data-anim="sobe">{MEMORIA.sub}</p>
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2" data-anim-grupo>
+        {MEMORIA.pontos.map((p) => (
+          <li class="rounded-card border border-line bg-canvas p-4" data-anim="cartao">
+            <div class="mb-1.5 flex items-center gap-2 text-brand">
+              <Icone nome={p.icone} class="size-5" />
+              <h3 class="font-semibold text-navy">{p.titulo}</h3>
+            </div>
+            <p class="text-sm text-muted">{p.texto}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div data-anim="sobe">
+      <MemoriaAoVivo client:visible={{ rootMargin: "200px" }} />
+    </div>
+  </div>
+</Secao>
