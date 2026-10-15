@@ -81,6 +81,9 @@ body {
 .linha-mask {
   display: block;
   overflow: hidden;
+  /* Folga para acento e cedilha: o overflow cortava o Ú de NÚCLEO e o Ç. */
+  padding: 0.14em 0.06em 0.1em 0;
+  margin: -0.14em 0 -0.1em 0;
 }
 
 .linha-mask > span {
@@ -117,14 +120,17 @@ html.preloader::before {
 }
 
 /* Grade de logos: cinza, colore no hover. */
+/* Os PNGs do site da i9 têm o logo pequeno no meio de um quadrado: a escala
+   compensa a margem embutida. */
 .logo-cliente img {
-  filter: grayscale(1) opacity(0.55);
+  filter: grayscale(1) opacity(0.7);
+  transform: scale(1.7);
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .logo-cliente:hover img {
   filter: none;
-  transform: translateY(-2px);
+  transform: scale(1.8);
 }
 
 @media (prefers-reduced-motion: reduce) {

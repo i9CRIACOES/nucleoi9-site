@@ -11,8 +11,8 @@ import { CLIENTES } from "../../lib/conteudo";
   </div>
   <ul class="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7" data-anim-grupo>
     {CLIENTES.logos.map((l) => (
-      <li class="logo-cliente flex h-24 items-center justify-center rounded-card border border-line bg-white p-4" data-anim="cartao">
-        <img src={l.arquivo} alt={l.nome} loading="lazy" width="120" height="60" class="max-h-14 w-auto max-w-full object-contain" />
+      <li class="logo-cliente flex h-28 items-center justify-center overflow-hidden rounded-card border border-line bg-white p-3" data-anim="cartao" title={l.nome}>
+        <img src={l.arquivo} alt={l.nome} loading="lazy" width="225" height="225" class="h-full w-full object-contain" />
       </li>
     ))}
   </ul>
