@@ -3,10 +3,11 @@ import Icone from "../Icone.astro";
 import Secao from "../Secao.astro";
 import Titulo from "../Titulo.astro";
 import { AGENTES } from "../../lib/conteudo";
+import AgenteOrbe from "../../react/AgenteOrbe";
 ---
 
 <Secao id="agentes" escura>
-  <div class="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+  <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
     <div>
       <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-light" data-anim="sobe">
         <Icone nome="Bot" class="size-4" />
@@ -14,18 +15,19 @@ import { AGENTES } from "../../lib/conteudo";
       </p>
       <Titulo linhas={AGENTES.titulo} claro />
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-sidebar-fg" data-anim="sobe">{AGENTES.sub}</p>
+    </div>
 
-      <ul class="mt-8 grid gap-3 sm:grid-cols-2" data-anim-grupo>
-        {AGENTES.pontos.map((p) => (
-          <li class="rounded-card border border-white/10 bg-white/5 p-4" data-anim="cartao">
-            <div class="mb-2 flex items-center gap-2 text-brand-light">
-              <Icone nome={p.icone} class="size-5" />
-              <h3 class="font-semibold text-white">{p.titulo}</h3>
-            </div>
-            <p class="text-sm text-sidebar-fg">{p.texto}</p>
-          </li>
-        ))}
-      </ul>
+    <blockquote class="relative self-end rounded-panel border border-brand-light/30 bg-gradient-to-br from-brand/30 to-navy-light/40 p-7 lg:p-9" data-anim="sobe">
+      <span class="absolute -top-4 left-7 inline-flex items-center gap-1.5 rounded-full bg-success px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-navy">
+        <Icone nome="Sparkles" class="size-3.5" strokeWidth={2.5} /> Texto e voz · 24 h
+      </span>
+      <p class="garrafal-sm text-[clamp(1.15rem,2vw,1.5rem)] leading-snug text-white">{AGENTES.destaque}</p>
+    </blockquote>
+  </div>
+
+  <div class="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+    <div class="rounded-panel border border-white/10 bg-[#0b2436]/60 px-6 py-10" data-anim="sobe">
+      <AgenteOrbe client:visible={{ rootMargin: "200px" }} />
     </div>
 
     <div class="mx-auto w-full max-w-sm" data-anim="sobe">
@@ -56,4 +58,16 @@ import { AGENTES } from "../../lib/conteudo";
       </div>
     </div>
   </div>
+
+  <ul class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-anim-grupo>
+    {AGENTES.pontos.map((p) => (
+      <li class="rounded-card border border-white/10 bg-white/5 p-4" data-anim="cartao">
+        <div class="mb-2 flex items-center gap-2 text-brand-light">
+          <Icone nome={p.icone} class="size-5" />
+          <h3 class="font-semibold text-white">{p.titulo}</h3>
+        </div>
+        <p class="text-sm text-sidebar-fg">{p.texto}</p>
+      </li>
+    ))}
+  </ul>
 </Secao>

@@ -92,6 +92,8 @@ export const AGENTES = {
   selo: "Agentes iA",
   titulo: ["Agentes de IA que atendem,", "entendem, conversam,", "agendam e fecham negócios."],
   sub: "A inteligência artificial assume o primeiro contato. Entende o que a pessoa quer, responde no tom da sua empresa e só passa para alguém quando vale a pena.",
+  destaque:
+    "Possuímos os agentes mais inteligentes, que respondem por texto e voz, adotando o seu tom de marca, falando sobre os seus clientes, vencendo objeções, criando autoridade, tirando dúvidas, realizando atendimento e criando novas oportunidades em tempo real, 24 horas por dia, sem descanso.",
   pontos: [
     { icone: "Power", titulo: "Liga e desliga quando precisar", texto: "Um interruptor por conversa e um por conta. Você decide." },
     { icone: "ArrowRightLeft", titulo: "Transfere para a equipe de vendas", texto: "Com o histórico inteiro, sem a pessoa repetir nada." },
