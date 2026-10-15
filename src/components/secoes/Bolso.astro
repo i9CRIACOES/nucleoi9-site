@@ -1,0 +1,59 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { BOLSO } from "../../lib/conteudo";
+---
+
+<Secao id="bolso" class="bg-white">
+  <div class="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+    <div class="order-2 mx-auto w-full max-w-[320px] lg:order-1" data-anim="sobe">
+      <div class="relative rounded-[2.6rem] border-[10px] border-navy bg-navy shadow-soft">
+        <div class="absolute left-1/2 top-0 h-6 w-28 -translate-x-1/2 rounded-b-2xl bg-navy"></div>
+        <div class="overflow-hidden rounded-[2rem] bg-canvas">
+          <div class="flex items-center justify-between px-5 pb-1 pt-4 text-[11px] font-semibold text-navy">
+            <span>15:32</span>
+            <span class="flex items-center gap-1"><Icone nome="Signal" class="size-3" /><Icone nome="Wifi" class="size-3" /><Icone nome="BatteryFull" class="size-3.5" /></span>
+          </div>
+          <div class="px-3 pb-6 pt-2">
+            <div class="mb-3 flex items-center gap-2 rounded-xl bg-white px-3 py-2 shadow-card">
+              <img src="/marca/nucleo-i9-horizontal.svg" alt="" width="90" height="22" class="h-5 w-auto" />
+              <span class="ml-auto text-[10px] font-semibold uppercase tracking-wide text-muted">Hoje</span>
+            </div>
+            <ul class="flex flex-col gap-2" data-notificacoes>
+              {BOLSO.notificacoes.map((n) => (
+                <li class="flex gap-3 rounded-2xl bg-white p-3 shadow-card" data-notif>
+                  <span class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-chip text-brand"><Icone nome="Bell" class="size-4" /></span>
+                  <div class="min-w-0 flex-1">
+                    <div class="flex items-baseline justify-between gap-2">
+                      <p class="truncate text-sm font-semibold text-navy">{n.titulo}</p>
+                      <span class="shrink-0 text-[10px] text-muted">{n.quando}</span>
+                    </div>
+                    <p class="truncate text-xs text-muted">{n.texto}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <Titulo linhas={BOLSO.titulo} />
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted" data-anim="sobe">{BOLSO.sub}</p>
+      <ul class="mt-8 flex flex-col gap-3" data-anim-grupo>
+        {BOLSO.pontos.map((p) => (
+          <li class="flex items-center gap-3 font-medium text-navy" data-anim="cartao">
+            <span class="flex size-7 items-center justify-center rounded-full bg-success/15 text-[#1f8f43]"><Icone nome="Check" class="size-4" strokeWidth={2.5} /></span>
+            {p}
+          </li>
+        ))}
+      </ul>
+      <div class="mt-8 flex gap-3" data-anim="sobe">
+        <span class="inline-flex items-center gap-2 rounded-xl border border-line px-3 py-2 text-sm font-semibold text-navy"><Icone nome="Apple" class="size-4" /> iPhone</span>
+        <span class="inline-flex items-center gap-2 rounded-xl border border-line px-3 py-2 text-sm font-semibold text-navy"><Icone nome="Smartphone" class="size-4" /> Android</span>
+      </div>
+    </div>
+  </div>
+</Secao>

@@ -1,0 +1,34 @@
+---
+/**
+ * Barra fixa no topo: logo horizontal à esquerda, Entrar e Acionar agora à
+ * direita. Começa transparente sobre o hero e ganha fundo branco quando a
+ * página rola (classe `rolou`, posta pelo scripts/site.ts).
+ */
+import { HERO } from "../lib/conteudo";
+---
+
+<header
+  id="barra-topo"
+  class="fixed inset-x-0 top-0 z-40 transition-[background-color,box-shadow,backdrop-filter] duration-300 lg:left-[88px] [&.rolou]:bg-white/90 [&.rolou]:shadow-card [&.rolou]:backdrop-blur"
+>
+  <div class="container-site flex h-16 items-center justify-between gap-4">
+    <a href="#inicio" class="flex items-center rounded-lg bg-white px-2 py-1 shadow-card" aria-label="Núcleo i9, início">
+      <img src="/marca/nucleo-i9-horizontal.svg" alt="Núcleo i9" width="146" height="36" class="h-8 w-auto" />
+    </a>
+    <div class="flex items-center gap-2">
+      <a
+        href="/entrar"
+        class="hidden h-10 items-center rounded-xl border border-white/40 px-4 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:inline-flex [.rolou_&]:border-line [.rolou_&]:text-navy [.rolou_&]:hover:bg-chip"
+      >
+        {HERO.entrar}
+      </a>
+      <button
+        type="button"
+        data-acionar
+        class="inline-flex h-10 items-center rounded-xl bg-brand px-4 text-sm font-semibold text-white shadow-card transition-colors hover:bg-brand-light"
+      >
+        {HERO.acionar}
+      </button>
+    </div>
+  </div>
+</header>

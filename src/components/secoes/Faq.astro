@@ -1,0 +1,25 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { FAQ } from "../../lib/conteudo";
+---
+
+<Secao id="faq">
+  <div class="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+    <Titulo linhas={FAQ.titulo} />
+    <div class="flex flex-col gap-2" data-anim-grupo>
+      {FAQ.itens.map((f) => (
+        <details class="group rounded-card border border-line bg-white px-5 shadow-card open:border-brand" data-anim="cartao">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-semibold text-navy [&::-webkit-details-marker]:hidden">
+            {f.p}
+            <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-chip text-brand transition-transform group-open:rotate-45">
+              <Icone nome="Plus" class="size-4" strokeWidth={2.5} />
+            </span>
+          </summary>
+          <p class="pb-5 text-sm leading-relaxed text-muted">{f.r}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</Secao>

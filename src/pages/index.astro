@@ -1,16 +1,50 @@
 ---
+import Base from "../layouts/Base.astro";
+import MenuLateral from "../components/MenuLateral.astro";
+import BarraTopo from "../components/BarraTopo.astro";
+import BarraMobile from "../components/BarraMobile.astro";
+import Rodape from "../components/Rodape.astro";
+import Hero from "../components/secoes/Hero.astro";
+import Painel from "../components/secoes/Painel.astro";
+import Solucoes from "../components/secoes/Solucoes.astro";
+import IdealPara from "../components/secoes/IdealPara.astro";
+import Agentes from "../components/secoes/Agentes.astro";
+import Bolso from "../components/secoes/Bolso.astro";
+import Beneficios from "../components/secoes/Beneficios.astro";
+import Comparativo from "../components/secoes/Comparativo.astro";
+import Planos from "../components/secoes/Planos.astro";
+import ComoComeca from "../components/secoes/ComoComeca.astro";
+import I9 from "../components/secoes/I9.astro";
+import Clientes from "../components/secoes/Clientes.astro";
+import Faq from "../components/secoes/Faq.astro";
+import CtaFinal from "../components/secoes/CtaFinal.astro";
+import Preloader from "../react/Preloader";
+import ListaDeEspera from "../react/ListaDeEspera";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base>
+  <div id="progresso" aria-hidden="true"></div>
+  <Preloader client:load />
+  <MenuLateral />
+  <BarraTopo />
+  <main id="conteudo" class="lg:pl-[88px]">
+    <Hero />
+    <Painel />
+    <Solucoes />
+    <IdealPara />
+    <Agentes />
+    <Bolso />
+    <Beneficios />
+    <Comparativo />
+    <Planos />
+    <ComoComeca />
+    <I9 />
+    <Clientes />
+    <Faq />
+    <CtaFinal />
+    <Rodape />
+  </main>
+  <BarraMobile />
+  <ListaDeEspera client:load />
+  <script src="../scripts/site.ts"></script>
+</Base>

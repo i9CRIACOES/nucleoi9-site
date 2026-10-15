@@ -1,0 +1,19 @@
+---
+/**
+ * Um ícone do lucide pelo nome, renderizado no build como SVG estático.
+ * Sem hidratação: é só desenho.
+ */
+import * as lucide from "lucide-react";
+
+interface Props {
+  nome: string;
+  class?: string;
+  size?: number;
+  strokeWidth?: number;
+}
+
+const { nome, class: cls, size = 20, strokeWidth = 1.75 } = Astro.props;
+const Icon = (lucide as unknown as Record<string, typeof lucide.Circle>)[nome] ?? lucide.Circle;
+---
+
+<Icon className={cls} size={size} strokeWidth={strokeWidth} aria-hidden="true" />

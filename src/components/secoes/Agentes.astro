@@ -1,0 +1,59 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { AGENTES } from "../../lib/conteudo";
+---
+
+<Secao id="agentes" escura>
+  <div class="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+    <div>
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-light" data-anim="sobe">
+        <Icone nome="Bot" class="size-4" />
+        {AGENTES.selo}
+      </p>
+      <Titulo linhas={AGENTES.titulo} claro />
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-sidebar-fg" data-anim="sobe">{AGENTES.sub}</p>
+
+      <ul class="mt-8 grid gap-3 sm:grid-cols-2" data-anim-grupo>
+        {AGENTES.pontos.map((p) => (
+          <li class="rounded-card border border-white/10 bg-white/5 p-4" data-anim="cartao">
+            <div class="mb-2 flex items-center gap-2 text-brand-light">
+              <Icone nome={p.icone} class="size-5" />
+              <h3 class="font-semibold text-white">{p.titulo}</h3>
+            </div>
+            <p class="text-sm text-sidebar-fg">{p.texto}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mx-auto w-full max-w-sm" data-anim="sobe">
+      <div class="rounded-[2rem] border border-white/10 bg-[#0b2436] p-3 shadow-soft">
+        <div class="flex items-center gap-3 rounded-t-[1.5rem] bg-[#184e6c] px-4 py-3">
+          <span class="flex size-9 items-center justify-center rounded-full bg-brand-light text-white"><Icone nome="Bot" class="size-5" /></span>
+          <div class="leading-tight">
+            <p class="text-sm font-semibold text-white">Assistente · Clínica Viva</p>
+            <p class="text-[11px] text-success">Agente iA ligado</p>
+          </div>
+          <span class="ml-auto inline-flex h-6 w-11 items-center rounded-full bg-success p-0.5" aria-label="Agente iA ligado"><span class="ml-auto size-5 rounded-full bg-white"></span></span>
+        </div>
+        <ol class="flex flex-col gap-2 rounded-b-[1.5rem] bg-[#0f3349] p-4" data-conversa-ia>
+          {AGENTES.conversa.map((m) => (
+            <li
+              class:list={[
+                "max-w-[85%] rounded-2xl px-3.5 py-2 text-sm leading-snug",
+                m.de === "cliente" && "self-start rounded-bl-md bg-white text-ink",
+                m.de === "ia" && "self-end rounded-br-md bg-brand text-white",
+                m.de === "sistema" && "max-w-full self-center rounded-lg bg-success/20 px-3 py-1.5 text-center text-xs font-semibold text-success",
+              ]}
+              data-msg
+            >
+              {m.texto}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </div>
+</Secao>

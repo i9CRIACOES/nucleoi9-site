@@ -1,0 +1,27 @@
+---
+/** No celular o menu lateral vira uma barra inferior com cinco atalhos. */
+import Icone from "./Icone.astro";
+import { MENU } from "../lib/conteudo";
+
+const atalhos = MENU.filter((m) => ["inicio", "painel", "solucoes", "planos", "faq"].includes(m.id));
+---
+
+<nav
+  aria-label="Atalhos"
+  class="fixed inset-x-0 bottom-0 z-40 border-t border-sidebar-line bg-sidebar pb-[env(safe-area-inset-bottom)] text-sidebar-fg lg:hidden"
+>
+  <ul class="grid grid-cols-5">
+    {atalhos.map((item) => (
+      <li>
+        <a
+          href={`#${item.id}`}
+          data-menu={item.id}
+          class="flex flex-col items-center gap-0.5 py-2 text-[10px] font-medium aria-[current=true]:text-brand-light"
+        >
+          <Icone nome={item.icone} class="size-5" />
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

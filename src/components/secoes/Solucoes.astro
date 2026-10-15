@@ -1,0 +1,47 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { SOLUCOES, API_OFICIAL } from "../../lib/conteudo";
+---
+
+<Secao id="solucoes">
+  <div class="mb-12 max-w-3xl">
+    <Titulo linhas={SOLUCOES.titulo} />
+    <p class="mt-5 text-lg text-muted" data-anim="sobe">{SOLUCOES.sub}</p>
+  </div>
+
+  <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-anim-grupo>
+    {SOLUCOES.itens.map((c) => (
+      <li
+        class:list={[
+          "group rounded-card border bg-white p-6 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-soft",
+          c.destaque ? "border-brand ring-2 ring-brand/15" : "border-line",
+        ]}
+        data-anim="cartao"
+      >
+        <div class:list={["mb-5 flex size-11 items-center justify-center rounded-xl", c.destaque ? "bg-brand text-white" : "bg-chip text-brand"]}>
+          <Icone nome={c.icone} class="size-[22px]" />
+        </div>
+        <h3 class="garrafal-sm text-lg text-navy">{c.titulo}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-muted">{c.texto}</p>
+        {c.destaque && (
+          <p class="mt-4 inline-flex items-center gap-1.5 rounded-full bg-success/15 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-[#1f8f43]">
+            <Icone nome="BadgeCheck" class="size-3.5" strokeWidth={2.5} />
+            Apenas API oficial
+          </p>
+        )}
+      </li>
+    ))}
+  </ul>
+
+  <div class="mt-10 grid gap-6 rounded-panel bg-navy p-8 text-white md:grid-cols-[auto_1fr] md:items-center lg:p-10" data-anim="sobe">
+    <div class="flex size-16 items-center justify-center rounded-2xl bg-success/20 text-success">
+      <Icone nome="BadgeCheck" class="size-9" strokeWidth={2} />
+    </div>
+    <div>
+      <h3 class="garrafal text-2xl sm:text-3xl">{API_OFICIAL.titulo}</h3>
+      <p class="mt-3 max-w-3xl leading-relaxed text-sidebar-fg">{API_OFICIAL.texto}</p>
+    </div>
+  </div>
+</Secao>

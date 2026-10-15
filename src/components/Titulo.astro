@@ -1,0 +1,29 @@
+---
+/**
+ * Título garrafal, uma linha por `span`, cada uma dentro de uma máscara para
+ * o GSAP subir linha a linha. `linhas` vem de `conteudo.ts`.
+ */
+interface Props {
+  linhas: string[];
+  tag?: "h1" | "h2" | "h3";
+  class?: string;
+  claro?: boolean;
+}
+
+const { linhas, tag = "h2", class: cls = "", claro = false } = Astro.props;
+const Tag = tag;
+---
+
+<Tag
+  class:list={[
+    "garrafal",
+    claro ? "text-white" : "text-navy",
+    tag === "h1" ? "text-[clamp(2.4rem,7vw,5.4rem)]" : "text-[clamp(2rem,5vw,3.9rem)]",
+    cls,
+  ]}
+  data-anim="titulo"
+>
+  {linhas.map((l) => (
+    <span class="linha-mask"><span>{l}</span></span>
+  ))}
+</Tag>

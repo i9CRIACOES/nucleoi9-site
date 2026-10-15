@@ -1,0 +1,52 @@
+---
+import Icone from "../Icone.astro";
+import Titulo from "../Titulo.astro";
+import { HERO } from "../../lib/conteudo";
+import CrowdCanvas from "../../react/CrowdCanvas";
+import BotaoMagnetico from "../../react/BotaoMagnetico";
+---
+
+<section
+  id="inicio"
+  data-secao="inicio"
+  class="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden bg-navy-ink text-white"
+>
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_left,#184e6c_0%,#0f3349_45%,#0b2436_100%)]"></div>
+  <div class="absolute inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"></div>
+
+  <div class="container-site relative z-10 pb-[34vh] pt-28 lg:pb-[30vh] lg:pt-32">
+    <p class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-light" data-anim="sobe">
+      <span class="size-1.5 rounded-full bg-success"></span>
+      {HERO.selo}
+    </p>
+
+    <Titulo tag="h1" linhas={HERO.titulo} claro class="max-w-5xl" />
+
+    <p class="mt-7 max-w-2xl text-base leading-relaxed text-sidebar-fg sm:text-lg" data-anim="sobe">{HERO.sub}</p>
+
+    <ul class="mt-7 flex flex-wrap gap-2" data-anim="sobe">
+      {HERO.pilulas.map((p) => (
+        <li class="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-sm font-medium text-white backdrop-blur">
+          <Icone nome="Check" class="size-4 text-success" strokeWidth={2.5} />
+          {p}
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-9 flex flex-wrap items-center gap-3" data-anim="sobe">
+      <BotaoMagnetico client:idle rotulo={HERO.acionar} />
+      <a
+        href="/entrar"
+        class="inline-flex h-12 items-center gap-2 rounded-xl border border-white/30 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+      >
+        <Icone nome="LogIn" class="size-4" />
+        {HERO.entrar}
+      </a>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-[42vh] lg:h-[48vh]" aria-hidden="true">
+    <div class="absolute inset-x-0 bottom-0 h-px bg-white/15"></div>
+    <CrowdCanvas client:idle src="/hero/peeps.png" rows={15} cols={7} />
+  </div>
+</section>

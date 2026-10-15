@@ -1,0 +1,16 @@
+---
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { PAINEL } from "../../lib/conteudo";
+import Simulador from "../../react/simulador/Simulador";
+---
+
+<Secao id="painel" class="bg-white">
+  <div class="mb-10 max-w-3xl">
+    <Titulo linhas={PAINEL.titulo} />
+    <p class="mt-5 text-lg text-muted" data-anim="sobe">{PAINEL.sub}</p>
+  </div>
+  <div data-anim="sobe">
+    <Simulador client:visible={{ rootMargin: "300px" }} />
+  </div>
+</Secao>

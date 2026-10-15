@@ -1,0 +1,43 @@
+---
+/**
+ * A barra lateral fixa do site, cópia da barra do CRM: navy, ícone com
+ * rótulo curto embaixo, item ativo com a barrinha azul à esquerda. O
+ * scrollspy (scripts/site.ts) troca o `aria-current`.
+ */
+import Icone from "./Icone.astro";
+import { MENU } from "../lib/conteudo";
+---
+
+<nav
+  id="menu-lateral"
+  aria-label="Seções do site"
+  class="fixed inset-y-0 left-0 z-50 hidden w-[88px] flex-col items-center border-r border-sidebar-line bg-sidebar py-4 text-sidebar-fg lg:flex"
+>
+  <a href="#inicio" class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-card" aria-label="Núcleo i9, início">
+    <img src="/marca/nucleo-i9-vertical.svg" alt="" width="44" height="56" class="h-12 w-auto" />
+  </a>
+
+  <ul class="flex w-full flex-1 flex-col gap-0.5 overflow-y-auto px-2">
+    {MENU.map((item) => (
+      <li>
+        <a
+          href={`#${item.id}`}
+          data-menu={item.id}
+          class="group relative flex flex-col items-center gap-1 rounded-xl px-1 py-2.5 text-sidebar-fg transition-colors hover:bg-navy-light hover:text-white aria-[current=true]:bg-navy-light aria-[current=true]:text-white"
+        >
+          <span class="absolute left-0 top-1/2 h-7 w-1 -translate-y-1/2 rounded-r-full bg-transparent transition-colors group-aria-[current=true]:bg-brand-light"></span>
+          <Icone nome={item.icone} class="size-5 transition-colors group-aria-[current=true]:text-brand-light" />
+          <span class="text-[10px] font-medium leading-tight">{item.label}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <a
+    href="/entrar"
+    class="mt-2 flex w-[72px] flex-col items-center gap-1 rounded-xl border border-sidebar-line px-1 py-2.5 text-[10px] font-semibold text-white transition-colors hover:bg-navy-light"
+  >
+    <Icone nome="LogIn" class="size-5" />
+    Entrar
+  </a>
+</nav>

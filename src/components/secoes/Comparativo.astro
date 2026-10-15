@@ -1,0 +1,47 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { COMPARATIVO } from "../../lib/conteudo";
+---
+
+<Secao id="comparativo" class="bg-white">
+  <div class="mb-10 max-w-3xl">
+    <Titulo linhas={COMPARATIVO.titulo} />
+    <p class="mt-5 text-lg text-muted" data-anim="sobe">{COMPARATIVO.sub}</p>
+  </div>
+
+  <div class="overflow-hidden rounded-panel border border-line shadow-card" data-anim="sobe">
+    <table class="w-full border-collapse text-left text-sm">
+      <thead class="bg-canvas text-[11px] font-bold uppercase tracking-[0.14em] text-muted">
+        <tr>
+          <th scope="col" class="px-4 py-3 sm:px-6">Ferramenta</th>
+          <th scope="col" class="hidden px-4 py-3 sm:table-cell sm:px-6">Separado</th>
+          <th scope="col" class="px-4 py-3 text-right text-brand sm:px-6">No Núcleo i9</th>
+        </tr>
+      </thead>
+      <tbody data-anim-grupo>
+        {COMPARATIVO.linhas.map((l) => (
+          <tr class="border-t border-line" data-anim="cartao">
+            <td class="px-4 py-4 font-medium text-navy sm:px-6">
+              {l.ferramenta}
+              <span class="mt-0.5 block text-xs font-normal text-muted sm:hidden">{l.concorrente}</span>
+            </td>
+            <td class="hidden px-4 py-4 text-muted sm:table-cell sm:px-6">{l.concorrente}</td>
+            <td class="px-4 py-4 text-right sm:px-6">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-success/15 px-2.5 py-1 text-xs font-bold text-[#1f8f43]">
+                <Icone nome="Check" class="size-3.5" strokeWidth={3} />
+                {COMPARATIVO.incluso}
+              </span>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 border-t border-line bg-navy px-6 py-4 text-sm font-semibold text-white">
+      {COMPARATIVO.garantias.map((g) => (
+        <span class="inline-flex items-center gap-2"><Icone nome="ShieldCheck" class="size-4 text-success" /> {g}</span>
+      ))}
+    </div>
+  </div>
+</Secao>

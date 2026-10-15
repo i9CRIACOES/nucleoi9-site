@@ -1,0 +1,28 @@
+---
+import Icone from "../Icone.astro";
+import Titulo from "../Titulo.astro";
+import { CTA_FINAL, HERO } from "../../lib/conteudo";
+---
+
+<section id="cta" class="py-20 lg:py-28">
+  <div class="container-site">
+    <div class="relative overflow-hidden rounded-panel bg-navy px-8 py-14 text-center text-white lg:px-16 lg:py-20" data-anim="sobe">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,#0075be_0%,transparent_55%)] opacity-70"></div>
+      <div class="relative">
+        <img src="/marca/nucleo-i9-vertical.svg" alt="" width="72" height="91" class="mx-auto mb-6 h-20 w-auto rounded-xl bg-white p-1.5" />
+        <Titulo linhas={CTA_FINAL.titulo} claro class="mx-auto max-w-3xl" />
+        <p class="mt-5 text-lg text-sidebar-fg">{CTA_FINAL.sub}</p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <button type="button" data-acionar class="inline-flex h-12 items-center gap-2 rounded-xl bg-brand px-6 text-sm font-semibold text-white shadow-soft transition-colors hover:bg-brand-light">
+            <Icone nome="Zap" class="size-4" />
+            {HERO.acionar}
+          </button>
+          <a href="/entrar" class="inline-flex h-12 items-center gap-2 rounded-xl border border-white/30 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+            <Icone nome="LogIn" class="size-4" />
+            {HERO.entrar}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

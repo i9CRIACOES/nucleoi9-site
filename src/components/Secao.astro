@@ -1,0 +1,23 @@
+---
+/** Uma seção da página: âncora do menu, respiro vertical e container. */
+interface Props {
+  id: string;
+  class?: string;
+  escura?: boolean;
+  semContainer?: boolean;
+}
+
+const { id, class: cls = "", escura = false, semContainer = false } = Astro.props;
+---
+
+<section
+  id={id}
+  data-secao={id}
+  class:list={[
+    "relative scroll-mt-20 py-20 lg:py-28",
+    escura ? "bg-navy text-white" : "",
+    cls,
+  ]}
+>
+  {semContainer ? <slot /> : <div class="container-site"><slot /></div>}
+</section>

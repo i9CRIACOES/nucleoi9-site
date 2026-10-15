@@ -1,0 +1,20 @@
+---
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { COMO_COMECA } from "../../lib/conteudo";
+---
+
+<Secao id="como-comeca" class="bg-white">
+  <div class="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+    <Titulo linhas={COMO_COMECA.titulo} />
+    <ol class="relative grid gap-4 sm:grid-cols-2" data-anim-grupo>
+      {COMO_COMECA.passos.map((p, i) => (
+        <li class="rounded-card border border-line bg-canvas p-6" data-anim="cartao">
+          <span class="garrafal text-4xl text-brand/30">0{i + 1}</span>
+          <h3 class="garrafal-sm mt-2 text-lg text-navy">{p.titulo}</h3>
+          <p class="mt-1.5 text-sm text-muted">{p.texto}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Secao>

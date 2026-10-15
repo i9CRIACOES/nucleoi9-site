@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+import Entrar from "../react/Entrar";
+---
+
+<Base titulo="Entrar | Núcleo i9" descricao="Entre no painel da sua empresa no Núcleo i9." caminho="/entrar" simples>
+  <main class="flex min-h-screen items-center justify-center bg-[radial-gradient(ellipse_at_top_left,#184e6c_0%,#0f3349_45%,#0b2436_100%)] p-4">
+    <Entrar client:load />
+  </main>
+</Base>

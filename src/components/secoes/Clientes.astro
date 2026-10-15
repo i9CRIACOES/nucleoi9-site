@@ -1,0 +1,19 @@
+---
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { CLIENTES } from "../../lib/conteudo";
+---
+
+<Secao id="clientes" class="bg-white">
+  <div class="mb-12 max-w-4xl">
+    <Titulo linhas={CLIENTES.titulo} />
+    <p class="garrafal mt-4 text-2xl text-brand" data-anim="sobe">{CLIENTES.sub}</p>
+  </div>
+  <ul class="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7" data-anim-grupo>
+    {CLIENTES.logos.map((l) => (
+      <li class="logo-cliente flex h-24 items-center justify-center rounded-card border border-line bg-white p-4" data-anim="cartao">
+        <img src={l.arquivo} alt={l.nome} loading="lazy" width="120" height="60" class="max-h-14 w-auto max-w-full object-contain" />
+      </li>
+    ))}
+  </ul>
+</Secao>

@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import { SITE } from "../lib/conteudo";
+import { SITE_URL } from "../lib/config";
+
+interface Props {
+  titulo?: string;
+  descricao?: string;
+  caminho?: string;
+  /** Página sem o menu lateral (ex.: /entrar). */
+  simples?: boolean;
+}
+
+const { titulo = SITE.titulo, descricao = SITE.descricao, caminho = "/" } = Astro.props;
+const canonical = new URL(caminho, SITE_URL).toString();
+const og = new URL("/og.png", SITE_URL).toString();
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0f3349" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={SITE.nome} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={SITE.ogTitulo} />
+    <meta property="og:description" content={SITE.ogDescricao} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={SITE.ogTitulo} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={SITE.ogTitulo} />
+    <meta name="twitter:description" content={SITE.ogDescricao} />
+    <meta name="twitter:image" content={og} />
+
+    <script is:inline>
+      // Marca que há JavaScript: só então os elementos animados começam
+      // invisíveis. Sem JS (ou com ele falhando), tudo aparece.
+      document.documentElement.classList.add("js");
+      // Primeira visita da sessão: cobre a tela até o preloader montar,
+      // para o hero não piscar antes dele. Quem já viu, não vê de novo.
+      try {
+        var reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!reduz && location.pathname === "/" && sessionStorage.getItem("ni9-preloader") !== "1") {
+          document.documentElement.classList.add("preloader");
+          // Segurança: se o componente não montar em 4 s, libera a página.
+          setTimeout(function () { document.documentElement.classList.remove("preloader"); }, 4000);
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body class="min-h-screen bg-canvas text-ink">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,56 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { PLANOS, HERO } from "../../lib/conteudo";
+---
+
+<Secao id="planos">
+  <div class="mb-12 max-w-3xl">
+    <Titulo linhas={PLANOS.titulo} />
+    <p class="mt-5 text-lg text-muted" data-anim="sobe">{PLANOS.sub}</p>
+  </div>
+
+  <ul class="grid gap-5 lg:grid-cols-3" data-anim-grupo>
+    {PLANOS.itens.map((p) => (
+      <li
+        class:list={[
+          "relative flex flex-col rounded-panel border bg-white p-7 shadow-card",
+          p.destaque ? "border-brand ring-4 ring-brand/10 lg:-my-3 lg:py-10" : "border-line",
+        ]}
+        data-anim="cartao"
+      >
+        {p.destaque && (
+          <span class="absolute -top-3 left-7 rounded-full bg-brand px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white">Mais escolhido</span>
+        )}
+        <h3 class="garrafal text-3xl text-navy">{p.nome}</h3>
+        <p class="mt-2 text-sm text-muted">{p.para}</p>
+        <ul class="mt-6 flex flex-1 flex-col gap-2.5">
+          {p.itens.map((i) => (
+            <li class="flex items-start gap-2.5 text-sm text-navy">
+              <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-success/15 text-[#1f8f43]"><Icone nome="Check" class="size-3" strokeWidth={3} /></span>
+              {i}
+            </li>
+          ))}
+        </ul>
+        <button
+          type="button"
+          data-acionar
+          data-plano={p.nome}
+          class:list={[
+            "mt-8 inline-flex h-12 w-full items-center justify-center rounded-xl text-sm font-semibold transition-colors",
+            p.destaque ? "bg-brand text-white hover:bg-brand-light" : "border border-navy text-navy hover:bg-navy hover:text-white",
+          ]}
+        >
+          {HERO.acionar}
+        </button>
+      </li>
+    ))}
+  </ul>
+
+  <ul class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-navy" data-anim="sobe">
+    {PLANOS.rodape.map((r) => (
+      <li class="inline-flex items-center gap-2"><Icone nome="CircleCheck" class="size-4 text-brand" /> {r}</li>
+    ))}
+  </ul>
+</Secao>

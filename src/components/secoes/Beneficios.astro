@@ -1,0 +1,24 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { BENEFICIOS } from "../../lib/conteudo";
+---
+
+<Secao id="beneficios">
+  <div class="mb-12 max-w-3xl">
+    <Titulo linhas={BENEFICIOS.titulo} />
+    <p class="mt-5 text-lg text-muted" data-anim="sobe">{BENEFICIOS.sub}</p>
+  </div>
+  <ul class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7" data-anim-grupo>
+    {BENEFICIOS.itens.map((b) => (
+      <li class="group flex flex-col items-center rounded-card border border-line bg-white px-3 py-6 text-center shadow-card transition-all hover:-translate-y-0.5 hover:border-brand hover:shadow-soft" data-anim="cartao">
+        <span class="mb-3 flex size-14 items-center justify-center rounded-full border-2 border-brand text-brand transition-colors group-hover:bg-brand group-hover:text-white">
+          <Icone nome={b.icone} class="size-6" />
+        </span>
+        <h3 class="garrafal-sm text-base text-navy">{b.titulo}</h3>
+        <p class="mt-1 text-xs leading-snug text-muted">{b.texto}</p>
+      </li>
+    ))}
+  </ul>
+</Secao>

@@ -1,0 +1,50 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { I9 } from "../../lib/conteudo";
+---
+
+<Secao id="i9" escura>
+  <div class="grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+    <div>
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand-light" data-anim="sobe">
+        <Icone nome="Award" class="size-4" />
+        {I9.selo}
+      </p>
+      <Titulo linhas={I9.titulo} claro />
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-sidebar-fg" data-anim="sobe">{I9.texto}</p>
+
+      <ul class="mt-10 grid grid-cols-3 gap-3" data-anim-grupo>
+        {I9.numeros.map((n) => (
+          <li class="rounded-card bg-white/5 p-5 text-center" data-anim="cartao">
+            <p class="garrafal text-4xl text-white sm:text-5xl">
+              <span data-contador={n.valor}>0</span>{n.sufixo}
+            </p>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wide text-sidebar-fg sm:text-sm">{n.rotulo}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div data-anim="sobe">
+      <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand-light">Setores atendidos</h3>
+      <ul class="grid grid-cols-2 gap-2">
+        {I9.setores.map((s) => (
+          <li class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white">{s}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-16 border-t border-white/10 pt-10" data-anim="sobe">
+    <h3 class="mb-6 text-center text-xs font-bold uppercase tracking-[0.14em] text-brand-light">{I9.certificacoesTitulo}</h3>
+    <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+      {I9.certificacoes.map((c) => (
+        <li class="flex h-20 items-center justify-center rounded-xl bg-white p-3" title={c.nome}>
+          <img src={c.arquivo} alt={c.nome} loading="lazy" class="max-h-12 w-auto max-w-full object-contain" />
+        </li>
+      ))}
+    </ul>
+  </div>
+</Secao>
