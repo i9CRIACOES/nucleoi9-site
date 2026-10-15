@@ -2,6 +2,7 @@ import { Mic, Paperclip, Play, Send, Smile } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { CONVERSAS_LISTA, THREAD_INICIAL } from "../dados";
 import { useDepois, useDigitando } from "../hooks";
+import { ChipAgente } from "./AgenteAoVivo";
 
 const RESPOSTA = "Perfeito, Mariana! Vou gerar o contrato e te mando o link para assinar.";
 
@@ -50,7 +51,11 @@ export function Conversas() {
                 </div>
                 <p className="truncate text-[11px] text-muted">{c.previa}</p>
               </div>
-              {c.naoLidas > 0 && <span className="flex size-4 items-center justify-center rounded-full bg-success text-[9px] font-bold text-white">{c.naoLidas}</span>}
+              {c.nome === "Leonardo Menezes" ? (
+                <ChipAgente />
+              ) : (
+                c.naoLidas > 0 && <span className="flex size-4 items-center justify-center rounded-full bg-success text-[9px] font-bold text-white">{c.naoLidas}</span>
+              )}
             </li>
           ))}
         </ul>

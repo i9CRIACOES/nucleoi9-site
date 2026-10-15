@@ -8,7 +8,9 @@ export type Passo = { tela: Tela; duracao: number };
 
 export const PASSOS: Passo[] = [
   { tela: "dashboard", duracao: 6000 },
-  { tela: "contatos", duracao: 4200 },
+  // Contatos é mais longa: o Agente iA responde um cliente ao vivo antes do
+  // "clique" no WhatsApp que leva para Conversas.
+  { tela: "contatos", duracao: 12000 },
   { tela: "conversas", duracao: 7500 },
   { tela: "empresas", duracao: 4500 },
   { tela: "funil", duracao: 8000 },

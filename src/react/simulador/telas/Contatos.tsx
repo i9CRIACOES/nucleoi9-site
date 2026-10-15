@@ -2,6 +2,7 @@ import { Plus, Search } from "lucide-react";
 import { CONTATOS } from "../dados";
 import { useDepois } from "../hooks";
 import { IconeWhatsapp } from "../IconeWhatsapp";
+import { AgenteAoVivo, ChipAgente } from "./AgenteAoVivo";
 
 const COR_TAG: Record<string, string> = {
   Quente: "bg-red-50 text-red-700",
@@ -10,12 +11,16 @@ const COR_TAG: Record<string, string> = {
   Qualificado: "bg-success/15 text-[#1f8f43]",
 };
 
+/** Quem está sendo atendido pelo Agente iA nesta encenação. */
+const COM_AGENTE = new Set(["Leonardo Menezes", "Amanda Ribeiro"]);
+
 export function Contatos() {
-  const destaca = useDepois(2300);
-  const clica = useDepois(3600);
+  // Primeiro o Agente iA responde um cliente; só depois o "clique" no WhatsApp.
+  const destaca = useDepois(9200);
+  const clica = useDepois(10400);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="relative flex h-full flex-col gap-3">
       <div className="flex items-center gap-2">
         <label className="flex h-9 flex-1 items-center gap-2 rounded-full border border-line bg-white px-3 text-xs text-muted">
           <Search className="size-4" />
@@ -40,6 +45,7 @@ export function Contatos() {
           <tbody>
             {CONTATOS.map((c, i) => {
               const alvo = i === 0;
+              const comAgente = COM_AGENTE.has(c.nome);
               return (
                 <tr
                   key={c.nome}
@@ -58,7 +64,10 @@ export function Contatos() {
                   <td className="hidden px-3 py-2.5 text-muted md:table-cell">{c.telefone}</td>
                   <td className="hidden px-3 py-2.5 text-muted sm:table-cell">{c.origem}</td>
                   <td className="px-3 py-2.5">
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${COR_TAG[c.tag] ?? "bg-canvas text-muted"}`}>{c.tag}</span>
+                    <span className="flex flex-wrap items-center gap-1">
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${COR_TAG[c.tag] ?? "bg-canvas text-muted"}`}>{c.tag}</span>
+                      {comAgente && <ChipAgente ativo={c.nome === "Leonardo Menezes"} />}
+                    </span>
                   </td>
                   <td className="px-3 py-2.5 text-right">
                     <span
@@ -81,7 +90,9 @@ export function Contatos() {
           </tbody>
         </table>
       </div>
-      <p className="text-[11px] text-muted">6 de 1.284 contatos · Clique no WhatsApp e a conversa abre no painel.</p>
+      <p className="text-[11px] text-muted">6 de 1.284 contatos · O Agente iA responde quem chega; o WhatsApp abre a conversa no painel.</p>
+
+      <AgenteAoVivo inicio={700} />
     </div>
   );
 }

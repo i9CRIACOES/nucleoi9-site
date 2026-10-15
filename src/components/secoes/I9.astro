@@ -30,11 +30,11 @@ import { I9 } from "../../lib/conteudo";
       </ul>
     </div>
 
-    <div data-anim="sobe">
+    <div class="flex flex-col" data-anim="sobe">
       <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand-light">Setores atendidos</h3>
-      <ul class="grid grid-cols-2 gap-2">
+      <ul class="grid flex-1 auto-rows-fr grid-cols-2 gap-2">
         {I9.setores.map((s) => (
-          <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3.5 py-3 text-sm font-medium text-white">
+          <li class="flex h-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3.5 py-3 text-sm font-medium text-white">
             <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand/25 text-brand-light">
               <Icone nome={s.icone} class="size-4" />
             </span>
