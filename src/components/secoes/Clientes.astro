@@ -9,9 +9,9 @@ import { CLIENTES } from "../../lib/conteudo";
     <Titulo linhas={CLIENTES.titulo} />
     <p class="garrafal mt-4 text-2xl text-brand" data-anim="sobe">{CLIENTES.sub}</p>
   </div>
-  <ul class="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-7" data-anim-grupo>
+  <ul class="grid grid-cols-3 gap-2.5 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8" data-anim-grupo>
     {CLIENTES.logos.map((l) => (
-      <li class="logo-cliente flex h-28 items-center justify-center overflow-hidden rounded-card border border-line bg-white p-3" data-anim="cartao" title={l.nome}>
+      <li class="logo-cliente flex h-24 items-center justify-center overflow-hidden rounded-card border border-line bg-white p-3" data-anim="cartao" title={l.nome}>
         <img src={l.arquivo} alt={l.nome} loading="lazy" width="225" height="225" class="h-full w-full object-contain" />
       </li>
     ))}

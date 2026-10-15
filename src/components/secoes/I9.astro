@@ -12,6 +12,9 @@ import { I9 } from "../../lib/conteudo";
         <Icone nome="Award" class="size-4" />
         {I9.selo}
       </p>
+      <a href="https://i9criacoes.com.br/" rel="noopener" class="mb-6 block w-fit" data-anim="sobe" aria-label="i9 Criações, site da agência">
+        <img src={I9.logo.arquivo} alt={I9.logo.alt} width="300" height="72" class="h-14 w-auto sm:h-16" />
+      </a>
       <Titulo linhas={I9.titulo} claro />
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-sidebar-fg" data-anim="sobe">{I9.texto}</p>
 
@@ -31,7 +34,12 @@ import { I9 } from "../../lib/conteudo";
       <h3 class="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-brand-light">Setores atendidos</h3>
       <ul class="grid grid-cols-2 gap-2">
         {I9.setores.map((s) => (
-          <li class="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-white">{s}</li>
+          <li class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3.5 py-3 text-sm font-medium text-white">
+            <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand/25 text-brand-light">
+              <Icone nome={s.icone} class="size-4" />
+            </span>
+            {s.nome}
+          </li>
         ))}
       </ul>
     </div>
