@@ -4,6 +4,7 @@ import Secao from "../Secao.astro";
 import Titulo from "../Titulo.astro";
 import { AGENTES } from "../../lib/conteudo";
 import AgenteOrbe from "../../react/AgenteOrbe";
+import RoboIA from "../RoboIA.astro";
 ---
 
 <Secao id="agentes" escura>
@@ -17,12 +18,17 @@ import AgenteOrbe from "../../react/AgenteOrbe";
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-sidebar-fg" data-anim="sobe">{AGENTES.sub}</p>
     </div>
 
-    <blockquote class="relative self-end rounded-panel border border-brand-light/30 bg-gradient-to-br from-brand/30 to-navy-light/40 p-7 lg:p-9" data-anim="sobe">
-      <span class="absolute -top-4 left-7 inline-flex items-center gap-1.5 rounded-full bg-success px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-navy">
-        <Icone nome="Sparkles" class="size-3.5" strokeWidth={2.5} /> Texto e voz · 24 h
-      </span>
-      <p class="garrafal-sm text-[clamp(1.15rem,2vw,1.5rem)] leading-snug text-white">{AGENTES.destaque}</p>
-    </blockquote>
+    <div class="flex flex-col items-center gap-6" data-anim="sobe">
+      <RoboIA chips={AGENTES.orbitais} />
+      <blockquote class="relative w-full rounded-panel border border-brand-light/30 bg-gradient-to-br from-brand/30 to-navy-light/40 p-7 lg:p-8">
+        <span class="absolute -top-4 left-7 inline-flex items-center gap-1.5 rounded-full bg-success px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-navy">
+          <Icone nome="Sparkles" class="size-3.5" strokeWidth={2.5} /> Texto e voz · 24 h
+        </span>
+        <p class="garrafal text-[clamp(1.5rem,2.6vw,2.1rem)] text-white">{AGENTES.destaque[0]}</p>
+        <p class="garrafal-sm mt-1 text-[clamp(1.05rem,1.6vw,1.3rem)] text-brand-light">{AGENTES.destaque[1]}</p>
+        <p class="mt-4 text-base leading-relaxed text-sidebar-fg">{AGENTES.destaqueTexto}</p>
+      </blockquote>
+    </div>
   </div>
 
   <div class="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">

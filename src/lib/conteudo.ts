@@ -23,6 +23,7 @@ export const MENU: ItemMenu[] = [
   { id: "solucoes", label: "Soluções", icone: "Boxes" },
   { id: "agentes", label: "Agentes iA", icone: "Bot" },
   { id: "memoria", label: "Memória", icone: "BrainCircuit" },
+  { id: "jornada", label: "Jornada", icone: "Workflow" },
   { id: "bolso", label: "No bolso", icone: "Smartphone" },
   { id: "beneficios", label: "Benefícios", icone: "Sparkles" },
   { id: "planos", label: "Planos", icone: "CreditCard" },
@@ -93,8 +94,10 @@ export const AGENTES = {
   selo: "Agentes iA",
   titulo: ["Agentes de IA que atendem,", "entendem, conversam,", "agendam e fecham negócios."],
   sub: "A inteligência artificial assume o primeiro contato. Entende o que a pessoa quer, responde no tom da sua empresa e só passa para alguém quando vale a pena.",
-  destaque:
-    "Possuímos os agentes mais inteligentes, que respondem por texto e voz, adotando o seu tom de marca, falando sobre os seus clientes, vencendo objeções, criando autoridade, tirando dúvidas, realizando atendimento e criando novas oportunidades em tempo real, 24 horas por dia, sem descanso.",
+  destaque: ["Agentes de IA que vendem por você.", "Por texto e por voz, no tom da sua marca."],
+  destaqueTexto:
+    "Eles conhecem os seus clientes, respondem na hora, tiram dúvidas, vencem objeções e abrem oportunidades. 24 horas por dia, sem descanso.",
+  orbitais: ["Texto", "Voz", "24 h", "Objeções", "Agenda", "Tom da marca"],
   pontos: [
     { icone: "Power", titulo: "Liga e desliga quando precisar", texto: "Um interruptor por conversa e um por conta. Você decide." },
     { icone: "ArrowRightLeft", titulo: "Transfere para a equipe de vendas", texto: "Com o histórico inteiro, sem a pessoa repetir nada." },
@@ -110,6 +113,22 @@ export const AGENTES = {
     { de: "cliente", texto: "Pode confirmar!" },
     { de: "sistema", texto: "Avaliação agendada · quinta 15h · oportunidade criada no funil" },
   ],
+};
+
+export type Fase = { num: string; nome: string; titulo: string; texto: string; formula: string[]; icone: string };
+
+export const JORNADA = {
+  selo: "Automação na prática",
+  titulo: ["Com o Núcleo i9, você", "não perde nenhuma", "oportunidade."],
+  sub: "Do primeiro oi à venda, cada passo acontece sozinho. Clique numa fase ou deixe rodar.",
+  fases: [
+    { num: "01", nome: "Novo lead", icone: "UserPlus", titulo: "Chegou lead?", texto: "Do anúncio, do site ou do WhatsApp: ele entra no funil com origem, responsável e hora. Ninguém precisa digitar.", formula: ["Lead recebido", "vendedor definido", "oportunidade aberta"] },
+    { num: "02", nome: "Atendimento do agente", icone: "Bot", titulo: "O Agente iA responde na hora.", texto: "Em segundos, no tom da sua marca. Tira dúvidas, vence objeções e qualifica antes de alguém da equipe gastar tempo.", formula: ["Mensagem", "resposta em 8 s", "lead qualificado"] },
+    { num: "03", nome: "Follow-up", icone: "RotateCcw", titulo: "Ficou de pensar?", texto: "O Núcleo i9 espera o tempo que você definiu, confere se houve resposta e volta sozinho pelo WhatsApp.", formula: ["Sem resposta", "24 h", "follow-up enviado"] },
+    { num: "04", nome: "Lembrete", icone: "BellRing", titulo: "Reunião marcada?", texto: "Cliente e vendedor recebem o lembrete na hora certa, com a tarefa já no CRM. Ninguém esquece, ninguém falta.", formula: ["Reunião próxima", "lembrete", "confirmação registrada"] },
+    { num: "05", nome: "Criação de oportunidade", icone: "Kanban", titulo: "Interesse vira oportunidade.", texto: "Com valor, etapa e próximo passo, no funil certo. A equipe vê onde cada negócio está e quanto tem parado.", formula: ["Interesse confirmado", "oportunidade R$ 9.600", "etapa Proposta"] },
+    { num: "06", nome: "Venda", icone: "Trophy", titulo: "Fechou.", texto: "Proposta aceita, contrato assinado no celular, card em Ganha. E o histórico inteiro fica guardado para a próxima venda.", formula: ["Proposta aceita", "contrato assinado", "Ganha"] },
+  ] as Fase[],
 };
 
 export const MEMORIA = {

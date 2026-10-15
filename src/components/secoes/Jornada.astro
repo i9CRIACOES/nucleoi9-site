@@ -1,0 +1,21 @@
+---
+import Icone from "../Icone.astro";
+import Secao from "../Secao.astro";
+import Titulo from "../Titulo.astro";
+import { JORNADA } from "../../lib/conteudo";
+import JornadaAoVivo from "../../react/JornadaAoVivo";
+---
+
+<Secao id="jornada">
+  <div class="mb-10 max-w-3xl">
+    <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-chip px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand" data-anim="sobe">
+      <Icone nome="Workflow" class="size-4" />
+      {JORNADA.selo}
+    </p>
+    <Titulo linhas={JORNADA.titulo} />
+    <p class="mt-5 text-lg text-muted" data-anim="sobe">{JORNADA.sub}</p>
+  </div>
+  <div data-anim="sobe">
+    <JornadaAoVivo client:visible={{ rootMargin: "200px" }} />
+  </div>
+</Secao>

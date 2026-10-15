@@ -129,6 +129,15 @@ html.preloader::before {
   50% { transform: scaleY(1); }
 }
 
+@keyframes simBarra { from { width: 0 } to { width: 100% } }
+@keyframes simConfete { 0% { transform: translate(0,0) rotate(0); opacity: 1 } 100% { transform: translate(var(--dx), var(--dy)) rotate(540deg); opacity: 0 } }
+@keyframes jornadaMove { from { transform: translateX(-110%) scale(1.04); opacity: 0.6 } to { transform: none; opacity: 1 } }
+
+@keyframes giraLento {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* Grade de logos: cinza, colore no hover. */
 /* Os PNGs do site da i9 têm o logo pequeno no meio de um quadrado: a escala
    compensa a margem embutida. */

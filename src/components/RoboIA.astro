@@ -1,0 +1,39 @@
+---
+/**
+ * O robô da seção Agentes iA: cabeça do lucide num disco com brilho, anéis
+ * girando devagar e chips em órbita com o que ele faz. Só CSS.
+ */
+import Icone from "./Icone.astro";
+
+interface Props {
+  chips: string[];
+  class?: string;
+}
+
+const { chips, class: cls = "" } = Astro.props;
+const raio = 46; // % do container
+---
+
+<div class:list={["relative mx-auto aspect-square w-[min(300px,70vw)]", cls]} aria-hidden="true">
+  <div class="absolute inset-[18%] rounded-full bg-brand/30 blur-2xl"></div>
+  <div class="absolute inset-[8%] rounded-full border border-dashed border-white/20 [animation:giraLento_40s_linear_infinite]"></div>
+  <div class="absolute inset-[22%] rounded-full border border-white/10 [animation:giraLento_28s_linear_infinite_reverse]"></div>
+  <div class="absolute inset-[30%] flex items-center justify-center rounded-full bg-[radial-gradient(circle_at_35%_30%,#2790d2_0%,#0075be_55%,#00649b_100%)] text-white shadow-soft ring-8 ring-white/5">
+    <Icone nome="Bot" class="size-[46%]" strokeWidth={1.6} />
+    <span class="absolute right-[14%] top-[14%] size-3 rounded-full bg-success ring-4 ring-navy"></span>
+  </div>
+  <div class="absolute inset-0 [animation:giraLento_40s_linear_infinite]">
+    {chips.map((c, i) => {
+      const ang = (i / chips.length) * Math.PI * 2 - Math.PI / 2;
+      const x = 50 + raio * Math.cos(ang);
+      const y = 50 + raio * Math.sin(ang);
+      return (
+        <span class="absolute -translate-x-1/2 -translate-y-1/2" style={`left:${x}%;top:${y}%`}>
+          <span class="block whitespace-nowrap rounded-full border border-white/15 bg-navy px-2.5 py-1 text-[11px] font-semibold text-white shadow-card [animation:giraLento_40s_linear_infinite_reverse]">
+            {c}
+          </span>
+        </span>
+      );
+    })}
+  </div>
+</div>
