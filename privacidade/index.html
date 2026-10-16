@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de Privacidade | Núcleo i9</title>
-<meta name="description" content="Como o Núcleo i9 trata dados pessoais, incluindo dados recebidos da Meta.">
+<meta name="description" content="Como o Núcleo i9 trata dados pessoais, incluindo dados recebidos da Meta e do Google.">
 <meta name="theme-color" content="#0b2436">
 <link rel="icon" href="/img/logo-nucleoi9.png" type="image/png">
 <link rel="canonical" href="https://www.nucleoi9.com.br/privacidade/">
@@ -209,7 +209,7 @@ h1 .under{white-space:nowrap;padding:0 .08em;border-radius:4px;background-image:
       <a class="back" href="/">&larr; Voltar para o Núcleo i9</a>
 
 <h1>Política de Privacidade do Núcleo i9</h1>
-<p class="updated">Última atualização: 6 de outubro de 2026</p>
+<p class="updated">Última atualização: 16 de outubro de 2026</p>
 
 <p class="lead">Esta política explica como a Marcelo de Souza Almeida Criações Ltda., nome fantasia i9 Criações, CNPJ 12.679.715/0001-00, com sede na Rua Apeninos, 681, Aclimação, São Paulo/SP, CEP 01533-000 ("i9 Criações", "nós"), trata dados pessoais no Núcleo i9, o CRM que oferecemos por assinatura em nucleoi9.com.br.</p>
 
@@ -235,6 +235,16 @@ h1 .under{white-space:nowrap;padding:0 .08em;border-radius:4px;background-image:
 <li><strong>Dados de acesso:</strong> os tokens de autorização gerados pela Meta, que guardamos criptografados.</li>
 </ul>
 <p>Só acessamos os ativos que a empresa cliente seleciona na tela de autorização da Meta.</p>
+<h3>Dados recebidos do Google (Google Agenda)</h3>
+<p>Somente quando um usuário do CRM conecta a própria conta Google e autoriza o acesso:</p>
+<ul>
+<li><strong>E-mail da conta Google:</strong> para mostrar qual conta está conectada.</li>
+<li><strong>Lista de agendas:</strong> nome e identificação das agendas da conta, para o usuário escolher qual delas usar.</li>
+<li><strong>Horários livres e ocupados:</strong> da agenda escolhida, para os Agentes iA oferecerem horários disponíveis aos clientes da empresa.</li>
+<li><strong>Criação de eventos:</strong> na agenda escolhida, quando um compromisso é marcado pelo atendimento do Núcleo i9.</li>
+<li><strong>Dados de acesso:</strong> o token de autorização gerado pelo Google.</li>
+</ul>
+<p>Não lemos o conteúdo dos eventos além do necessário para saber se um horário está ocupado. Não acessamos e-mails, contatos nem arquivos da conta Google.</p>
 
 <h2>3. Para que usamos os dados da Meta</h2>
 <p>Usamos os dados recebidos da Meta <strong>somente para prestar o serviço do Núcleo i9 à empresa que autorizou a conexão</strong>:</p>
@@ -247,7 +257,19 @@ h1 .under{white-space:nowrap;padding:0 .08em;border-radius:4px;background-image:
 <p>Não vendemos dados recebidos da Meta. Não usamos esses dados para publicidade própria, para criar perfis de pessoas nem para atender outra empresa. Os dados de uma empresa cliente nunca são usados para outra. Não usamos dados recebidos da Meta para treinar modelos de inteligência artificial.</p>
 </div>
 
-<h2>4. Base legal</h2>
+<h2>4. Para que usamos os dados do Google</h2>
+<p>Usamos os dados recebidos do Google <strong>somente para o recurso de agenda do Núcleo i9</strong>, escolhido pelo usuário que conectou a conta:</p>
+<ol>
+<li>Mostrar ao usuário quais agendas da conta dele podem ser usadas.</li>
+<li>Consultar os horários livres da agenda escolhida, para oferecer horários aos clientes da empresa.</li>
+<li>Criar na agenda escolhida os compromissos marcados pelo atendimento do Núcleo i9.</li>
+</ol>
+<p>O token de acesso fica guardado no banco de dados do Núcleo i9, numa área que só o servidor alcança. Ele não é exibido na tela nem compartilhado com terceiros. O usuário pode desconectar a qualquer momento em Integrações &gt; Google Agenda ou em <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>. Ao desconectar, apagamos o token e revogamos o acesso no Google.</p>
+<div class="callout">
+<p>O uso e a transferência de informações recebidas das APIs do Google pelo Núcleo i9 seguem a <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Política de Dados do Usuário dos Serviços de API do Google</a>, incluindo os requisitos de Uso Limitado. Não usamos dados do Google para publicidade, não os vendemos e não os usamos para treinar modelos de inteligência artificial.</p>
+</div>
+
+<h2>5. Base legal</h2>
 <p>Tratamos dados com base na Lei Geral de Proteção de Dados (Lei 13.709/2018):</p>
 <ul>
 <li>Execução do contrato com a empresa cliente e com os usuários do CRM (art. 7º, V).</li>
@@ -256,10 +278,11 @@ h1 .under{white-space:nowrap;padding:0 .08em;border-radius:4px;background-image:
 </ul>
 <p>Nos dados em que atuamos como operadora, a definição da base legal cabe à empresa cliente.</p>
 
-<h2>5. Com quem compartilhamos</h2>
+<h2>6. Com quem compartilhamos</h2>
 <p>Compartilhamos dados apenas com fornecedores necessários para o funcionamento do serviço, que os tratam em nosso nome:</p>
 <ul>
 <li><strong>Meta Platforms</strong> (Facebook, Instagram e WhatsApp): origem e destino das integrações autorizadas.</li>
+<li><strong>Google</strong> (Google Agenda): origem e destino da integração de agenda, quando o usuário a conecta.</li>
 <li><strong>Supabase:</strong> banco de dados, com servidores em São Paulo, Brasil.</li>
 <li><strong>Servidor dedicado contratado pela i9 Criações:</strong> hospedagem da aplicação.</li>
 <li><strong>Zernio:</strong> intermediário de envio e recebimento de mensagens de WhatsApp, quando usado.</li>
@@ -269,26 +292,27 @@ h1 .under{white-space:nowrap;padding:0 .08em;border-radius:4px;background-image:
 </ul>
 <p>Também podemos compartilhar dados quando a lei ou uma ordem judicial exigir.</p>
 
-<h2>6. Transferência internacional</h2>
+<h2>7. Transferência internacional</h2>
 <p>Alguns fornecedores podem tratar dados fora do Brasil. Nesses casos, adotamos as garantias previstas na LGPD, como cláusulas contratuais de proteção de dados.</p>
 
-<h2>7. Por quanto tempo guardamos</h2>
+<h2>8. Por quanto tempo guardamos</h2>
 <p>Guardamos os dados enquanto a empresa cliente tiver assinatura ativa. Depois do cancelamento, os dados ficam disponíveis por 90 dias para que a empresa possa exportá-los e então são excluídos, salvo o que a lei obrigar a manter.</p>
 <p>Quando a empresa desconecta a conta da Meta, os tokens de acesso são apagados e paramos de receber novos dados.</p>
+<p>Quando o usuário desconecta a conta Google, o token de acesso é apagado e o acesso é revogado no Google. Os eventos já criados continuam na agenda dele, que é dele.</p>
 
-<h2>8. Segurança</h2>
+<h2>9. Segurança</h2>
 <p>Os dados de cada empresa cliente ficam separados dos das outras. Usamos conexão criptografada (HTTPS), tokens guardados de forma criptografada, controle de acesso por usuário e cópias de segurança.</p>
 
-<h2>9. Seus direitos</h2>
+<h2>10. Seus direitos</h2>
 <p>Você pode pedir confirmação de tratamento, acesso, correção, anonimização, portabilidade, exclusão e informações sobre compartilhamento, além de revogar o consentimento quando ele for a base legal.</p>
 <p>Se os seus dados estão no CRM porque você é contato ou lead de uma empresa que usa o Núcleo i9, o ideal é falar primeiro com essa empresa. Se preferir, escreva para nós e encaminharemos o pedido a ela.</p>
 <p>Para excluir dados recebidos da Meta, veja a página <a href="/exclusao-de-dados/">Exclusão de dados</a>.</p>
 
-<h2>10. Encarregado de dados</h2>
+<h2>11. Encarregado de dados</h2>
 <p>Pedidos e dúvidas sobre dados pessoais: <a href="mailto:privacidade@nucleoi9.com.br">privacidade@nucleoi9.com.br</a>.</p>
 <!-- PENDENTE: incluir o nome do encarregado (DPO), exigido pela ANPD (Resolução CD/ANPD 18/2024). -->
 
-<h2>11. Alterações</h2>
+<h2>12. Alterações</h2>
 <p>Podemos atualizar esta política. A data no topo mostra a versão em vigor. Mudanças importantes serão avisadas aos clientes por e-mail ou dentro do CRM.</p>
 
     </article>
