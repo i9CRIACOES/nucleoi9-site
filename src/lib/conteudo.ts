@@ -98,6 +98,34 @@ export const AGENTES = {
   destaqueTexto:
     "Eles conhecem os seus clientes, respondem na hora, tiram dúvidas, vencem objeções e abrem oportunidades. 24 horas por dia, sem descanso.",
   orbitais: ["Texto", "Voz", "24 h", "Objeções", "Agenda", "Tom da marca"],
+  montar: {
+    titulo: ["Configure um agente,", "ou vários, em minutos."],
+    sub: "Sem programador, sem prompt gigante. Você responde perguntas simples sobre a sua empresa e o Agente iA nasce pronto para o WhatsApp.",
+    agentes: [
+      { nome: "Lia | Recepcionista", iniciais: "LI", cor: "#0075BE", papel: "Recebe todo mundo, entende o que a pessoa quer e encaminha.", chips: ["Ligado", "Piloto automático", "v3", "Todas as linhas"] },
+      { nome: "Isa | Atendimento", iniciais: "IS", cor: "#35CC62", papel: "Tira dúvidas, qualifica e agenda. Fala no tom da marca.", chips: ["Rascunho", "Copiloto", "v2", "Todas as linhas"] },
+      { nome: "Caio | Financeiro", iniciais: "CA", cor: "#184E6C", papel: "Segunda via, prazo, boleto. Sem ocupar a equipe.", chips: ["Rascunho", "Copiloto", "v1", "Linha financeiro"] },
+    ],
+    passos: [
+      { grupo: "Montar", nome: "Identidade", icone: "User" },
+      { grupo: "Montar", nome: "Estilo", icone: "Palette" },
+      { grupo: "Montar", nome: "Fluxo", icone: "Workflow" },
+      { grupo: "Montar", nome: "Regras", icone: "ShieldCheck" },
+      { grupo: "Montar", nome: "Comportamento", icone: "SlidersHorizontal" },
+      { grupo: "Montar", nome: "Ferramentas", icone: "Wrench" },
+      { grupo: "Montar", nome: "Gatilhos e linha", icone: "PhoneCall" },
+      { grupo: "Treinar", nome: "Conhecimento", icone: "BookOpen" },
+      { grupo: "Publicar", nome: "Testar e publicar", icone: "Rocket" },
+    ],
+    argumentos: [
+      { icone: "Users", titulo: "Um agente para cada papel", texto: "Recepção, atendimento, financeiro, pós-venda. Cada um com nome, foto, papel e especialidade. Quantos você quiser." },
+      { icone: "ToggleRight", titulo: "Piloto automático ou copiloto", texto: "No automático, ele responde sozinho. No copiloto, ele sugere e a sua equipe envia. Você escolhe por agente." },
+      { icone: "ListChecks", titulo: "9 passos guiados", texto: "Identidade, estilo, fluxo, regras, comportamento, ferramentas, gatilhos, conhecimento, teste. Com barra de progresso, sem se perder." },
+      { icone: "BookOpen", titulo: "Treine com o que você já tem", texto: "Site, PDF, tabela de preços, perguntas frequentes. Ele aprende o seu negócio, não um negócio genérico." },
+      { icone: "GitBranch", titulo: "Versões e publicação", texto: "Rascunho vira v1, v2, v3. Publica quando quiser e volta atrás se precisar. Nada vai ao ar sem você mandar." },
+      { icone: "PhoneCall", titulo: "Em todas as linhas ou numa só", texto: "O mesmo agente em todos os números da empresa, ou um agente por linha. Com a API oficial do WhatsApp." },
+    ],
+  },
   pontos: [
     { icone: "Power", titulo: "Liga e desliga quando precisar", texto: "Um interruptor por conversa e um por conta. Você decide." },
     { icone: "ArrowRightLeft", titulo: "Transfere para a equipe de vendas", texto: "Com o histórico inteiro, sem a pessoa repetir nada." },
