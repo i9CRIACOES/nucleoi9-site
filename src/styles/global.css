@@ -43,6 +43,13 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html,
+body {
+  /* Nada empurra a página para o lado: a multidão do hero passa da borda
+     enquanto anda e, sem isto, o celular balança uns pixels. */
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   background: var(--color-canvas);
@@ -138,6 +145,91 @@ html.preloader::before {
   to { transform: rotate(360deg); }
 }
 
+/*
+ * Carrossel no celular: a lista que no desktop é grade vira uma fila com
+ * rolagem lateral e encaixe por cartão. Fora de um layer de propósito, para
+ * vencer o `grid` do Tailwind. Os pontinhos nascem em scripts/site.ts.
+ */
+@media (width < 40rem) {
+  .carrossel {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * clamp(16px, 4vw, 40px));
+    padding-inline: clamp(16px, 4vw, 40px);
+    scroll-padding-inline: clamp(16px, 4vw, 40px);
+    padding-block: 4px;
+  }
+
+  .carrossel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carrossel > * {
+    flex: 0 0 var(--slide, 82%);
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  .carrossel-pontos {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0.75rem;
+  }
+
+  .carrossel-pontos button {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--color-line);
+    transition: width 0.25s ease, background-color 0.25s ease;
+  }
+
+  .carrossel-pontos button[aria-current="true"] {
+    width: 22px;
+    background: var(--color-brand);
+  }
+
+  .escura .carrossel-pontos button {
+    background: rgb(255 255 255 / 0.2);
+  }
+
+  .escura .carrossel-pontos button[aria-current="true"] {
+    background: var(--color-brand-light);
+  }
+}
+
+@media (width >= 40rem) {
+  .carrossel-pontos {
+    display: none;
+  }
+}
+
+/* Esteira de logos no celular: a fila anda sozinha e emenda sem corte. */
+.esteira {
+  display: flex;
+  gap: 0.625rem;
+  width: max-content;
+  animation: esteiraAnda var(--duracao, 60s) linear infinite;
+}
+
+.esteira-inversa {
+  animation-direction: reverse;
+}
+
+.esteira:hover {
+  animation-play-state: paused;
+}
+
+@keyframes esteiraAnda {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* Grade de logos: cinza, colore no hover. */
 /* Os PNGs do site da i9 têm o logo pequeno no meio de um quadrado: a escala
    compensa a margem embutida. */
@@ -159,6 +251,16 @@ html.preloader::before {
 
   .js [data-anim] {
     opacity: 1;
+  }
+
+  .esteira {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  .esteira > [data-copia] {
+    display: none;
   }
 
   *,

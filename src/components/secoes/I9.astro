@@ -47,7 +47,7 @@ import { I9 } from "../../lib/conteudo";
 
   <div class="mt-16 border-t border-white/10 pt-10" data-anim="sobe">
     <h3 class="mb-6 text-center text-xs font-bold uppercase tracking-[0.14em] text-brand-light">{I9.certificacoesTitulo}</h3>
-    <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
+    <ul class="carrossel grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8 [--slide:44%]">
       {I9.certificacoes.map((c) => (
         <li class="flex h-20 items-center justify-center rounded-xl bg-white p-3" title={c.nome}>
           <img src={c.arquivo} alt={c.nome} loading="lazy" class="max-h-12 w-auto max-w-full object-contain" />
