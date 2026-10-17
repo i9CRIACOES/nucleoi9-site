@@ -5,7 +5,7 @@
  * de ativação (Rascunho, Testando com a equipe, Copiloto, Ligado). A lista
  * acompanha a mudança. Roda só na tela; com menos movimento, mostra o fim.
  */
-import { Check, ChevronRight, EllipsisVertical, Rocket } from "lucide-react";
+import { Check, ChevronRight, Rocket } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { AGENTES } from "../lib/conteudo";
 
@@ -44,6 +44,19 @@ function Chip({ texto, novo }: { texto: string; novo?: boolean }) {
       style={novo ? { animation: "montChip .45s cubic-bezier(.2,.9,.3,1.3) both" } : undefined}
     >
       {texto}
+    </span>
+  );
+}
+
+/** Liga/desliga de cada agente, como vai ficar no painel. Só desenho. */
+function Interruptor({ ligado, nome }: { ligado: boolean; nome: string }) {
+  return (
+    <span
+      role="img"
+      aria-label={`${nome}: ${ligado ? "ligado" : "desligado"}`}
+      className={`inline-flex h-6 w-11 shrink-0 items-center rounded-full p-0.5 transition-colors duration-500 ${ligado ? "bg-success" : "bg-line"}`}
+    >
+      <span className={`size-5 rounded-full bg-white shadow-card transition-transform duration-500 ${ligado ? "translate-x-5" : "translate-x-0"}`} />
     </span>
   );
 }
@@ -117,7 +130,7 @@ export default function MontarAgente() {
                             ))}
                           </div>
                         </div>
-                        <EllipsisVertical className="size-4 shrink-0 text-muted" aria-hidden="true" />
+                        <Interruptor ligado={lista[0] === "Ligado"} nome={a.nome} />
                       </li>
                     );
                   })}

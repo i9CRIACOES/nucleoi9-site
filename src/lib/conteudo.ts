@@ -167,12 +167,16 @@ export const AGENTES = {
 export const AUTOMATICO = {
   selo: "Primeiro atendimento com Agentes iA",
   titulo: ["Venda todo dia,", "no automático."],
-  sub: "Deixe o primeiro atendimento com os Agentes iA. Eles conversam com quem chega, entendem o que a pessoa precisa, explicam preço e funcionamento e marcam a reunião na agenda do vendedor. Sua equipe entra quando a conversa já está pronta para fechar.",
-  bullets: [
-    { icone: "Filter", titulo: "Qualifica quem chega", texto: "Faz as perguntas certas e separa quem quer comprar agora de quem ainda está pesquisando." },
-    { icone: "CalendarCheck", titulo: "Marca a reunião", texto: "Olha o Google Agenda do vendedor e só oferece horário que está livre de verdade." },
-    { icone: "MessageCircleQuestion", titulo: "Explica tudo", texto: "Preço, prazo, forma de pagamento, como funciona. Com o conteúdo que a sua empresa ensinou." },
+  sub: "Um Agente iA, ligado no piloto automático, cuida do primeiro atendimento no WhatsApp. Ele conversa com quem chega, qualifica, marca a reunião e explica tudo o que o seu cliente precisa saber. Sua equipe entra quando a conversa já está pronta para fechar.",
+  agente: { nome: "Isa | Atendimento", foto: "/agentes/mulher-adulta-03.webp", modo: "Piloto automático" },
+  passos: [
+    { icone: "MessageCircle", titulo: "Alguém chega pelo WhatsApp", texto: "Anúncio, site ou indicação. A mensagem cai na linha da empresa e o Agente iA responde em segundos.", resultado: "Juliana · viu o anúncio do clareamento" },
+    { icone: "Filter", titulo: "O Agente iA qualifica", texto: "Faz as perguntas que o seu vendedor faria e separa quem quer comprar agora de quem ainda está pesquisando.", resultado: "Qualificado · quer começar até dezembro" },
+    { icone: "CalendarCheck", titulo: "O Agente iA marca a reunião", texto: "Olha o Google Agenda do vendedor, oferece só horário livre de verdade e confirma na hora.", resultado: "Quinta, 15:00 · Google Agenda" },
+    { icone: "MessageCircleQuestion", titulo: "Explica tudo", texto: "Preço, prazo, forma de pagamento, como funciona. Com o conteúdo que a sua empresa ensinou, no seu tom.", resultado: "Avaliação R$ 150 · abatida no tratamento · 6x" },
+    { icone: "Mic", titulo: "Por texto e por voz", texto: "Se o cliente manda áudio, o Agente iA entende e responde. Em texto ou em voz, como a pessoa preferir.", resultado: "Áudio de 0:12 entendido e respondido" },
   ],
+  fim: { titulo: "Sua equipe entra para fechar", texto: "Com o histórico inteiro, a reunião marcada e o cliente já sabendo o que precisa." },
   nota: "Funciona de madrugada, no fim de semana e no feriado. Com a API oficial do WhatsApp.",
 };
 
