@@ -196,6 +196,39 @@ export const JORNADA = {
   ] as Fase[],
 };
 
+export const MODELOS = {
+  selo: "Galeria de modelos",
+  numero: "140",
+  numeroRotulo: "modelos de Agente iA prontos para usar",
+  titulo: ["Seu agente já vem", "pronto para o", "seu segmento."],
+  sub: "Você não começa do zero. Escolhe o modelo feito para o seu tipo de negócio, coloca o nome, o tom e o que a sua empresa vende, e ele já pode atender no mesmo dia. Cada um sabe o que perguntar, o que não pode prometer e a hora de chamar alguém da equipe.",
+  segmentosTitulo: "Para todos os segmentos",
+  segmentos: [
+    { icone: "UtensilsCrossed", nome: "Alimentação" },
+    { icone: "Sparkles", nome: "Beleza" },
+    { icone: "GraduationCap", nome: "Educação" },
+    { icone: "PartyPopper", nome: "Eventos" },
+    { icone: "BedDouble", nome: "Hotelaria" },
+    { icone: "Building2", nome: "Imobiliário" },
+    { icone: "Stethoscope", nome: "Saúde" },
+    { icone: "Scale", nome: "Jurídico" },
+    { icone: "ShieldCheck", nome: "Seguros" },
+    { icone: "Briefcase", nome: "Serviços" },
+    { icone: "ShoppingBag", nome: "Varejo" },
+  ],
+  funcoesTitulo: "Agentes especializados em",
+  funcoes: [
+    { icone: "DoorOpen", nome: "Recepção" },
+    { icone: "TrendingUp", nome: "Vendas" },
+    { icone: "CalendarCheck", nome: "Agendamento" },
+    { icone: "MessagesSquare", nome: "Atendimento" },
+    { icone: "LifeBuoy", nome: "Suporte" },
+    { icone: "Wallet", nome: "Cobrança" },
+    { icone: "HeartHandshake", nome: "Pós-venda" },
+  ],
+  fecho: ["Um hub completo de agentes.", "Escolha, ajuste e publique."],
+};
+
 export const MEMORIA = {
   selo: "Nada se perde",
   titulo: ["Sua equipe pode", "até esquecer.", "O Núcleo i9", "jamais esquece."],
