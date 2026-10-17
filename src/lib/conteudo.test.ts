@@ -52,6 +52,13 @@ describe("conteúdo do site", () => {
     expect(novos).not.toMatch(/garant/i);
   });
 
+  it("na seção junta, o texto do agente é curto: uma frase e passos de uma linha", () => {
+    expect(AUTOMATICO.sub.length).toBeLessThanOrEqual(150);
+    expect(AUTOMATICO.sub.split(/[.!?]\s/).length).toBeLessThanOrEqual(2);
+    for (const p of AUTOMATICO.passos) expect(p.texto.length, p.titulo).toBeLessThanOrEqual(80);
+    expect(AUTOMATICO.fim.texto.length).toBeLessThanOrEqual(80);
+  });
+
   it("a conversa do Agente iA termina com reunião marcada", () => {
     const m = AGENTES.conversa.mensagens;
     expect(m[0].de).toBe("cliente");
