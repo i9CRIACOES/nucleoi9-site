@@ -59,7 +59,7 @@ export const SOLUCOES: { titulo: string[]; sub: string; itens: Cartao[] } = {
       texto: "Conversa, áudio, vídeo e documento dentro do CRM, com a equipe toda.",
       destaque: true,
     },
-    { icone: "Bot", titulo: "Agentes iA treinados pela sua empresa", texto: "Respondem no seu tom, qualificam e passam para a equipe." },
+    { icone: "Bot", titulo: "Agentes iA treinados pela sua empresa", texto: "Atendem no seu tom, tiram dúvida de preço, qualificam e já marcam a reunião na agenda do vendedor." },
     { icone: "FileSignature", titulo: "Assinatura de contratos", texto: "Proposta vira contrato assinado sem sair do negócio." },
     { icone: "Megaphone", titulo: "Integração com a Meta", texto: "Lead de anúncio do Facebook e Instagram cai direto no funil." },
     { icone: "ClipboardList", titulo: "Formulários", texto: "Crie, publique e receba. Cada envio já chega com origem." },
@@ -93,7 +93,7 @@ export const IDEAL_PARA = {
 export const AGENTES = {
   selo: "Agentes iA",
   titulo: ["Agentes de IA que atendem,", "entendem, conversam,", "agendam e fecham negócios."],
-  sub: "A inteligência artificial assume o primeiro contato. Entende o que a pessoa quer, responde no tom da sua empresa e só passa para alguém quando vale a pena.",
+  sub: "O Agente iA assume o primeiro contato no WhatsApp. Responde em segundos e no tom da sua empresa, tira as dúvidas de preço e funcionamento, faz as perguntas que o seu vendedor faria e marca a reunião direto no Google Agenda. Quando a conversa pede uma pessoa, passa para a equipe com o histórico inteiro.",
   destaque: ["Agentes de IA que vendem por você.", "Por texto e por voz, no tom da sua marca."],
   destaqueTexto:
     "Eles conhecem os seus clientes, respondem na hora, tiram dúvidas, vencem objeções e abrem oportunidades. 24 horas por dia, sem descanso.",
@@ -133,14 +133,40 @@ export const AGENTES = {
     { icone: "BellRing", titulo: "Alerta 24 horas por dia", texto: "Fim de semana, madrugada, feriado. Chegou lead, você sabe." },
     { icone: "GraduationCap", titulo: "Aprende constantemente", texto: "Quanto mais atende, mais conhece o seu negócio." },
   ],
-  conversa: [
-    { de: "cliente", texto: "Oi, vi o anúncio de vocês. Como funciona o plano para clínica?" },
-    { de: "ia", texto: "Olá! Eu sou a assistente da Clínica Viva. Posso te explicar rapidinho e já agendar uma avaliação. Você prefere manhã ou tarde?" },
-    { de: "cliente", texto: "Tarde, quinta se der." },
-    { de: "ia", texto: "Quinta às 15h está livre. Confirmo no seu nome, Juliana?" },
-    { de: "cliente", texto: "Pode confirmar!" },
-    { de: "sistema", texto: "Avaliação agendada · quinta 15h · oportunidade criada no funil" },
+  conversa: {
+    contato: "Juliana Prado",
+    agente: "Isa · Clínica Viva",
+    mensagens: [
+      { de: "cliente", texto: "Oi! Vi o anúncio do clareamento. Quanto custa e como funciona?" },
+      { de: "ia", texto: "Oi, Juliana! Aqui é a Isa, da Clínica Viva. Começa com uma avaliação de 40 minutos com a dentista, que vê o que o seu caso pede e passa o valor certinho na hora." },
+      { de: "cliente", texto: "E a avaliação é paga?" },
+      { de: "ia", texto: "Custa R$ 150 e esse valor é abatido se você fizer o tratamento. Dá para parcelar em até 6x. Você já fez clareamento antes?" },
+      { de: "cliente", texto: "Nunca fiz. Queria fazer antes do fim do ano." },
+      { de: "qualifica", texto: "Interesse: clareamento · Primeira vez · Quer começar até dezembro" },
+      { de: "ia", texto: "Dá tempo, sim. Olhei a agenda da Dra. Paula: quinta às 15h ou sexta às 10h. Qual fica melhor?" },
+      { de: "cliente", texto: "Quinta 15h!" },
+      { de: "ia", texto: "Marcado, Juliana. Quinta, 22 de outubro, às 15h. Te mando um lembrete na véspera. 😊" },
+    ],
+    evento: {
+      titulo: "Avaliação · Juliana Prado",
+      quando: "Quinta, 22 de outubro · 15:00 a 15:40",
+      com: "Dra. Paula",
+      selo: "Marcado pelo Agente iA",
+      funil: "Oportunidade criada no funil · Qualificado",
+    },
+  },
+};
+
+export const AUTOMATICO = {
+  selo: "Primeiro atendimento com Agentes iA",
+  titulo: ["Venda todo dia,", "no automático."],
+  sub: "Deixe o primeiro atendimento com os Agentes iA. Eles conversam com quem chega, entendem o que a pessoa precisa, explicam preço e funcionamento e marcam a reunião na agenda do vendedor. Sua equipe entra quando a conversa já está pronta para fechar.",
+  bullets: [
+    { icone: "Filter", titulo: "Qualifica quem chega", texto: "Faz as perguntas certas e separa quem quer comprar agora de quem ainda está pesquisando." },
+    { icone: "CalendarCheck", titulo: "Marca a reunião", texto: "Olha o Google Agenda do vendedor e só oferece horário que está livre de verdade." },
+    { icone: "MessageCircleQuestion", titulo: "Explica tudo", texto: "Preço, prazo, forma de pagamento, como funciona. Com o conteúdo que a sua empresa ensinou." },
   ],
+  nota: "Funciona de madrugada, no fim de semana e no feriado. Com a API oficial do WhatsApp.",
 };
 
 export type Fase = { num: string; nome: string; titulo: string; texto: string; formula: string[]; icone: string };

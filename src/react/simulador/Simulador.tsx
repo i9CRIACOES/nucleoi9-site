@@ -3,12 +3,13 @@
  * ícone e rótulo, cabeçalho, fundo claro) e um roteiro que passa pelas
  * telas sozinho. Clicar num item da barra pula para aquela tela.
  */
-import { Bot, Building2, Home, Kanban, Users } from "lucide-react";
+import { Bot, Building2, CalendarDays, Home, Kanban, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IconeWhatsapp } from "./IconeWhatsapp";
 import { Dashboard } from "./telas/Dashboard";
 import { Contatos } from "./telas/Contatos";
 import { Conversas } from "./telas/Conversas";
+import { Agenda } from "./telas/Agenda";
 import { Empresas } from "./telas/Empresas";
 import { Funil } from "./telas/Funil";
 import { Agentes } from "./telas/Agentes";
@@ -18,6 +19,7 @@ const ICONES: Record<Tela, React.ComponentType<{ className?: string }>> = {
   dashboard: Home,
   contatos: Users,
   conversas: IconeWhatsapp,
+  agenda: CalendarDays,
   empresas: Building2,
   funil: Kanban,
   agentes: Bot,
@@ -27,6 +29,7 @@ const TITULOS: Record<Tela, { titulo: string; sub: string }> = {
   dashboard: { titulo: "Dashboard", sub: "Resultados do mês, com comparação" },
   contatos: { titulo: "Contatos", sub: "Todas as pessoas na sua base" },
   conversas: { titulo: "Conversas", sub: "WhatsApp: quem está esperando resposta" },
+  agenda: { titulo: "Agenda", sub: "A semana da equipe, ligada ao Google Agenda de cada um" },
   empresas: { titulo: "Empresas", sub: "Cadastro, contatos e negociações" },
   funil: { titulo: "Funil de vendas", sub: "Arraste os cards entre as etapas" },
   agentes: { titulo: "Agentes iA", sub: "Quem atende primeiro no WhatsApp da conta" },
@@ -60,7 +63,7 @@ export default function Simulador() {
     setRodada((r) => r + 1);
   };
 
-  const Tela = { dashboard: Dashboard, contatos: Contatos, conversas: Conversas, empresas: Empresas, funil: Funil, agentes: Agentes }[passo.tela];
+  const Tela = { dashboard: Dashboard, contatos: Contatos, conversas: Conversas, agenda: Agenda, empresas: Empresas, funil: Funil, agentes: Agentes }[passo.tela];
 
   return (
     <div
@@ -140,6 +143,8 @@ export default function Simulador() {
         @keyframes simPulso { 0%,100% { box-shadow: 0 0 0 0 rgba(53,204,98,.6) } 60% { box-shadow: 0 0 0 10px rgba(53,204,98,0) } }
         @keyframes simOnda { 0%,100% { transform: scaleY(.3) } 50% { transform: scaleY(1) } }
         @keyframes simTraco { to { stroke-dashoffset: 0 } }
+        @keyframes simToast { from { opacity: 0; transform: translateY(-10px) scale(.96) } to { opacity: 1; transform: none } }
+        @keyframes simAlerta { 0%,100% { box-shadow: 0 0 0 0 rgba(220,38,38,.55) } 60% { box-shadow: 0 0 0 8px rgba(220,38,38,0) } }
         @keyframes simConfete { 0% { transform: translate(0,0) rotate(0); opacity: 1 } 100% { transform: translate(var(--dx), var(--dy)) rotate(540deg); opacity: 0 } }
       `}</style>
     </div>

@@ -121,7 +121,6 @@ const sequencia = (sel: string, itemSel: string, de: gsap.TweenVars, cada = 0.45
     });
   });
 };
-sequencia("[data-conversa-ia]", "[data-msg]", { opacity: 0, y: 14, scale: 0.96 }, 0.55);
 sequencia("[data-notificacoes]", "[data-notif]", { opacity: 0, x: 40 }, 0.4);
 
 /* --------------------------------------------- FAQ: um aberto de cada vez */
