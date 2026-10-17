@@ -6,6 +6,7 @@ import { AGENTES } from "../../lib/conteudo";
 import AgenteOrbe from "../../react/AgenteOrbe";
 import RoboIA from "../RoboIA.astro";
 import ConversaAgente from "../../react/ConversaAgente";
+import MontarAgente from "../../react/MontarAgente";
 ---
 
 <Secao id="agentes" escura>
@@ -60,64 +61,9 @@ import ConversaAgente from "../../react/ConversaAgente";
       <p class="mt-5 text-lg leading-relaxed text-sidebar-fg" data-anim="sobe">{AGENTES.montar.sub}</p>
     </div>
 
-    <div class="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
-      <div class="flex flex-col gap-4" data-anim="sobe">
-        <div class="overflow-hidden rounded-panel border border-line bg-white shadow-soft">
-          <div class="flex items-center justify-between border-b border-line px-5 py-3">
-            <div>
-              <p class="font-semibold text-navy">Agentes iA</p>
-              <p class="text-[11px] text-muted">Atendem primeiro no WhatsApp; a equipe acompanha e assume quando quiser.</p>
-            </div>
-            <span class="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-800">Módulo</span>
-          </div>
-          <div class="flex gap-1 bg-canvas px-5 py-2 text-xs font-semibold">
-            <span class="rounded-md px-3 py-1 text-muted">Painel</span>
-            <span class="rounded-md bg-white px-3 py-1 text-navy shadow-card">Lista de Agentes iA</span>
-          </div>
-          <p class="px-5 pt-3 text-[10px] font-bold uppercase tracking-wide text-muted">Principais</p>
-          <ul class="flex flex-col gap-2 p-5 pt-2" data-anim-grupo>
-            {AGENTES.montar.agentes.map((a) => (
-              <li class="flex items-center gap-3 rounded-xl border border-line p-3" data-anim="cartao">
-                <span class="flex size-11 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white" style={`background:${a.cor}`}>{a.iniciais}</span>
-                <div class="min-w-0 flex-1">
-                  <p class="font-semibold text-navy">{a.nome}</p>
-                  <p class="truncate text-[11px] text-muted">{a.papel}</p>
-                  <div class="mt-1.5 flex flex-wrap gap-1">
-                    {a.chips.map((c) => (
-                      <span class:list={["rounded-full px-2 py-0.5 text-[10px] font-medium", c === "Ligado" ? "bg-success/15 text-[#1f8f43]" : "bg-canvas text-muted"]}>{c}</span>
-                    ))}
-                  </div>
-                </div>
-                <Icone nome="EllipsisVertical" class="size-4 text-muted" />
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="overflow-hidden rounded-panel border border-line bg-white shadow-soft">
-          <div class="flex items-center gap-3 border-b border-line px-5 py-3">
-            <span class="flex size-10 items-center justify-center rounded-full bg-success text-xs font-bold text-white">IS</span>
-            <div class="min-w-0 flex-1">
-              <p class="font-semibold text-navy">Isa | Atendimento</p>
-              <div class="mt-1 flex items-center gap-2">
-                <span class="h-1.5 w-40 overflow-hidden rounded-full bg-line"><span class="block h-full w-[89%] rounded-full bg-success"></span></span>
-                <span class="text-[11px] text-muted">8 de 9 passos</span>
-              </div>
-            </div>
-            <span class="inline-flex h-8 items-center gap-1.5 rounded-lg bg-navy px-3 text-xs font-semibold text-white"><Icone nome="Rocket" class="size-3.5" /> Publicar</span>
-          </div>
-          <ol class="grid grid-cols-3 gap-x-1 gap-y-4 px-4 py-4 sm:grid-cols-5 xl:grid-cols-9" data-anim-grupo>
-            {AGENTES.montar.passos.map((p, i) => (
-              <li class="flex flex-col items-center gap-1.5 text-center" data-anim="cartao">
-                <span class:list={["flex size-8 items-center justify-center rounded-full border-2", i === 7 ? "border-line bg-white text-xs font-bold text-muted" : "border-success bg-success text-white"]}>
-                  {i === 7 ? "8" : <Icone nome="Check" class="size-4" strokeWidth={3} />}
-                </span>
-                <span class="text-[9.5px] font-medium leading-tight text-navy [overflow-wrap:anywhere]">{p.nome}</span>
-                <span class="text-[9px] uppercase tracking-wide text-muted">{p.grupo}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
+    <div class="grid gap-8 lg:grid-cols-[1.45fr_1fr] lg:gap-10">
+      <div class="min-w-0" data-anim="sobe">
+        <MontarAgente client:visible={{ rootMargin: "200px" }} />
       </div>
 
       <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1" data-anim-grupo>

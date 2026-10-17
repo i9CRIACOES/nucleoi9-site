@@ -11,6 +11,7 @@ describe("conteúdo do site", () => {
     for (const l of [...CLIENTES.logos, ...I9.certificacoes]) {
       expect(existsSync(join(publico, l.arquivo)), l.arquivo).toBe(true);
     }
+    for (const a of AGENTES.montar.agentes) expect(existsSync(join(publico, a.foto)), a.foto).toBe(true);
     for (const l of COMPARATIVO.linhas) for (const src of l.logos) expect(existsSync(join(publico, src)), src).toBe(true);
   });
 
