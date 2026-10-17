@@ -1,7 +1,8 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { BENEFICIOS, CLIENTES, COMPARATIVO, I9, MENU, PLANOS, SOLUCOES } from "./conteudo";
+import * as conteudo from "./conteudo";
+import { AGENTES, AUTOMATICO, BENEFICIOS, CLIENTES, COMPARATIVO, I9, MENU, PLANOS, SOLUCOES } from "./conteudo";
 
 const publico = join(process.cwd(), "public");
 
@@ -28,5 +29,33 @@ describe("conteúdo do site", () => {
 
   it("os planos não expõem valor", () => {
     for (const p of PLANOS.itens) for (const i of p.itens) expect(i).not.toMatch(/R\$\s?\d/);
+  });
+
+  it("no texto é sempre Agentes iA: nada de robô ou bot", () => {
+    const textos: string[] = [];
+    const junta = (v: unknown, chave = "") => {
+      if (typeof v === "string") chave !== "icone" && textos.push(v);
+      else if (Array.isArray(v)) v.forEach((x) => junta(x));
+      else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => junta(x, k));
+    };
+    junta(conteudo);
+    for (const t of textos) {
+      expect(t, t).not.toMatch(/\brob[ôo]s?\b/i);
+      expect(t, t).not.toMatch(/\bbots?\b/i);
+    }
+  });
+
+  it("textos novos sem travessão e sem promessa de resultado garantido", () => {
+    const novos = JSON.stringify([AUTOMATICO, AGENTES.conversa, AGENTES.sub]);
+    expect(novos).not.toMatch(/—|–/);
+    expect(novos).not.toMatch(/garant/i);
+  });
+
+  it("a conversa do Agente iA termina com reunião marcada", () => {
+    const m = AGENTES.conversa.mensagens;
+    expect(m[0].de).toBe("cliente");
+    expect(m[m.length - 1].de).toBe("ia");
+    expect(m.some((x) => x.de === "qualifica")).toBe(true);
+    expect(AGENTES.conversa.evento.selo).toBe("Marcado pelo Agente iA");
   });
 });

@@ -55,3 +55,26 @@ export function useDigitando(texto: string, inicio: number, porLetra = 28) {
   }, [texto, inicio, porLetra]);
   return texto.slice(0, n);
 }
+
+/** `true` quando o sistema pede menos movimento. Lido uma vez, ao montar. */
+export function useMenosMovimento() {
+  const [menos] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  return menos;
+}
+
+/**
+ * Quantos dos `tempos` (ms desde a montagem) já passaram. Para encenar uma
+ * sequência. Com menos movimento, devolve tudo de uma vez.
+ */
+export function useEtapas(tempos: number[], menos = false) {
+  const [n, setN] = useState(menos ? tempos.length : 0);
+  useEffect(() => {
+    if (menos) return;
+    const ts = tempos.map((ms, i) => setTimeout(() => setN((v) => Math.max(v, i + 1)), ms));
+    return () => ts.forEach(clearTimeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menos, tempos.join(",")]);
+  return n;
+}

@@ -1,0 +1,48 @@
+---
+/**
+ * Faixa de chamada: o primeiro atendimento no automático com os Agentes iA.
+ * Fica logo antes da seção dos Agentes, que mostra a conversa encenada.
+ */
+import Icone from "../Icone.astro";
+import Titulo from "../Titulo.astro";
+import { AUTOMATICO, HERO } from "../../lib/conteudo";
+---
+
+<section id="automatico" class="py-16 lg:py-20">
+  <div class="container-site">
+    <div class="relative overflow-hidden rounded-panel bg-gradient-to-br from-brand to-navy px-7 py-12 text-white shadow-soft lg:px-14 lg:py-16" data-anim="sobe">
+      <div class="pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-brand-light/30 blur-3xl"></div>
+      <div class="relative grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-14">
+        <div>
+          <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+            <Icone nome="Bot" class="size-4" />
+            {AUTOMATICO.selo}
+          </p>
+          <Titulo linhas={AUTOMATICO.titulo} claro class="text-[clamp(2rem,3.6vw,3.25rem)]!" />
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/85" data-anim="sobe">{AUTOMATICO.sub}</p>
+          <div class="mt-8 flex flex-wrap items-center gap-4" data-anim="sobe">
+            <button type="button" data-acionar class="inline-flex h-12 items-center gap-2 rounded-xl bg-white px-6 text-sm font-semibold text-brand shadow-soft transition-colors hover:bg-chip">
+              <Icone nome="Zap" class="size-4" />
+              {HERO.acionar}
+            </button>
+            <p class="max-w-xs text-sm text-white/75">{AUTOMATICO.nota}</p>
+          </div>
+        </div>
+
+        <ul class="flex flex-col gap-3" data-anim-grupo>
+          {AUTOMATICO.bullets.map((b) => (
+            <li class="flex gap-4 rounded-card border border-white/15 bg-white/10 p-5 backdrop-blur-sm" data-anim="cartao">
+              <span class="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand">
+                <Icone nome={b.icone} class="size-[22px]" />
+              </span>
+              <div>
+                <h3 class="garrafal-sm text-lg">{b.titulo}</h3>
+                <p class="mt-1 text-sm leading-relaxed text-white/80">{b.texto}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
