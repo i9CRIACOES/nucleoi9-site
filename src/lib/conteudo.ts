@@ -102,9 +102,16 @@ export const AGENTES = {
     titulo: ["Configure um agente,", "ou vários, em minutos."],
     sub: "Sem programador, sem prompt gigante. Você responde perguntas simples sobre a sua empresa e o Agente iA nasce pronto para o WhatsApp.",
     agentes: [
-      { nome: "Lia | Recepcionista", iniciais: "LI", cor: "#0075BE", papel: "Recebe todo mundo, entende o que a pessoa quer e encaminha.", chips: ["Ligado", "Piloto automático", "v3", "Todas as linhas"] },
-      { nome: "Isa | Atendimento", iniciais: "IS", cor: "#35CC62", papel: "Tira dúvidas, qualifica e agenda. Fala no tom da marca.", chips: ["Rascunho", "Copiloto", "v2", "Todas as linhas"] },
-      { nome: "Caio | Financeiro", iniciais: "CA", cor: "#184E6C", papel: "Segunda via, prazo, boleto. Sem ocupar a equipe.", chips: ["Rascunho", "Copiloto", "v1", "Linha financeiro"] },
+      { nome: "Lia | Recepcionista", foto: "/agentes/mulher-jovem-06.webp", grupo: "Principais", chips: ["Ligado", "Piloto automático", "v3", "Alterações não publicadas", "Todas as linhas"] },
+      { nome: "Isa | Atendimento", foto: "/agentes/mulher-adulta-03.webp", grupo: "Principais", chips: ["Rascunho", "Copiloto", "v2", "Suporte"] },
+      { nome: "Caio | Financeiro", foto: "/agentes/homem-jovem-01.webp", grupo: "Principais", chips: ["Rascunho", "Copiloto", "v1", "Suporte"] },
+      { nome: "Rogério", foto: "/agentes/homem-jovem-03.webp", grupo: "Especialistas", chips: ["Ligado", "Piloto automático", "v1", "Comercial"] },
+    ],
+    degraus: [
+      { nome: "Rascunho", texto: "Ainda não atende ninguém." },
+      { nome: "Testando com a equipe", texto: "Responde sozinho só para os números da lista de teste." },
+      { nome: "Copiloto", texto: "Sugere a resposta; uma pessoa aprova e envia." },
+      { nome: "Ligado", texto: "Piloto automático: responde sozinho para todo mundo." },
     ],
     passos: [
       { grupo: "Montar", nome: "Identidade", icone: "User" },
@@ -119,10 +126,10 @@ export const AGENTES = {
     ],
     argumentos: [
       { icone: "Users", titulo: "Um agente para cada papel", texto: "Recepção, atendimento, financeiro, pós-venda. Cada um com nome, foto, papel e especialidade. Quantos você quiser." },
-      { icone: "ToggleRight", titulo: "Piloto automático ou copiloto", texto: "No automático, ele responde sozinho. No copiloto, ele sugere e a sua equipe envia. Você escolhe por agente." },
-      { icone: "ListChecks", titulo: "9 passos guiados", texto: "Identidade, estilo, fluxo, regras, comportamento, ferramentas, gatilhos, conhecimento, teste. Com barra de progresso, sem se perder." },
+      { icone: "ToggleRight", titulo: "Você decide quanto ele faz sozinho", texto: "Primeiro testa com a equipe, só nos números da lista. Depois vira copiloto, que sugere e alguém aprova. Quando estiver seguro, liga no automático." },
+      { icone: "ListChecks", titulo: "9 passos em 3 etapas", texto: "Montar, Treinar e Publicar. Cada passo pronto ganha check verde e a barra mostra quanto falta. Ninguém se perde." },
       { icone: "BookOpen", titulo: "Treine com o que você já tem", texto: "Site, PDF, tabela de preços, perguntas frequentes. Ele aprende o seu negócio, não um negócio genérico." },
-      { icone: "GitBranch", titulo: "Versões e publicação", texto: "Rascunho vira v1, v2, v3. Publica quando quiser e volta atrás se precisar. Nada vai ao ar sem você mandar." },
+      { icone: "GitBranch", titulo: "Versões e publicação", texto: "Mexeu na ficha, aparece Alterações não publicadas. O que está no ar só muda quando você publica, e cada publicação vira uma versão nova." },
       { icone: "PhoneCall", titulo: "Em todas as linhas ou numa só", texto: "O mesmo agente em todos os números da empresa, ou um agente por linha. Com a API oficial do WhatsApp." },
     ],
   },
