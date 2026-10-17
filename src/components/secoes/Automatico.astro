@@ -1,27 +1,32 @@
 ---
 /**
- * Faixa de chamada: o primeiro atendimento no automático com os Agentes iA.
- * Fica logo antes da seção dos Agentes, que mostra a conversa encenada.
+ * Seção única do automático, em duas partes: a faixa azul com o Agente iA
+ * cumprindo o primeiro atendimento passo a passo e, logo abaixo, a
+ * mensagem-chave ("não perde nenhuma oportunidade") com a jornada do lead
+ * em seis fases. As duas partes têm âncora e `data-secao` próprios, para o
+ * menu continuar apontando e destacando cada uma.
  */
 import Icone from "../Icone.astro";
 import Titulo from "../Titulo.astro";
-import { AUTOMATICO, HERO } from "../../lib/conteudo";
+import { AUTOMATICO, HERO, JORNADA } from "../../lib/conteudo";
 import AutomaticoPassos from "../../react/AutomaticoPassos";
+import JornadaAoVivo from "../../react/JornadaAoVivo";
 ---
 
-<section id="automatico" class="py-16 lg:py-20">
+<section id="automatico" class="relative scroll-mt-20 py-16 lg:py-20">
   <div class="container-site">
-    <div class="relative overflow-hidden rounded-panel bg-gradient-to-br from-brand to-navy px-7 py-12 text-white shadow-soft lg:px-14 lg:py-16" data-anim="sobe">
+    <!-- Parte 1: o Agente iA no piloto automático -->
+    <div data-secao="automatico" class="relative overflow-hidden rounded-panel bg-gradient-to-br from-brand to-navy px-7 py-10 text-white shadow-soft lg:px-14 lg:py-12" data-anim="sobe">
       <div class="pointer-events-none absolute -right-24 -top-24 size-80 rounded-full bg-brand-light/30 blur-3xl"></div>
-      <div class="relative grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-14">
+      <div class="relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14">
         <div>
-          <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-white">
             <Icone nome="Bot" class="size-4" />
             {AUTOMATICO.selo}
           </p>
-          <Titulo linhas={AUTOMATICO.titulo} claro class="text-[clamp(2rem,3.6vw,3.25rem)]!" />
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/85" data-anim="sobe">{AUTOMATICO.sub}</p>
-          <div class="mt-8 flex flex-wrap items-center gap-4" data-anim="sobe">
+          <Titulo linhas={AUTOMATICO.titulo} tag="h3" claro class="text-[clamp(1.5rem,2.4vw,2.1rem)]!" />
+          <p class="mt-4 max-w-md text-base leading-relaxed text-white/85" data-anim="sobe">{AUTOMATICO.sub}</p>
+          <div class="mt-6 flex flex-wrap items-center gap-4" data-anim="sobe">
             <button type="button" data-acionar class="inline-flex h-12 items-center gap-2 rounded-xl bg-white px-6 text-sm font-semibold text-brand shadow-soft transition-colors hover:bg-chip">
               <Icone nome="Zap" class="size-4" />
               {HERO.acionar}
@@ -33,6 +38,21 @@ import AutomaticoPassos from "../../react/AutomaticoPassos";
         <div class="min-w-0" data-anim="sobe">
           <AutomaticoPassos client:visible={{ rootMargin: "200px" }} />
         </div>
+      </div>
+    </div>
+
+    <!-- Parte 2: a mensagem-chave e a jornada do lead -->
+    <div id="jornada" data-secao="jornada" class="scroll-mt-24 pt-16 lg:pt-24">
+      <div class="mb-10 max-w-3xl">
+        <p class="mb-5 inline-flex items-center gap-2 rounded-full bg-chip px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-brand" data-anim="sobe">
+          <Icone nome="Workflow" class="size-4" />
+          {JORNADA.selo}
+        </p>
+        <Titulo linhas={JORNADA.titulo} />
+        <p class="mt-5 text-lg text-muted" data-anim="sobe">{JORNADA.sub}</p>
+      </div>
+      <div data-anim="sobe">
+        <JornadaAoVivo client:visible={{ rootMargin: "200px" }} />
       </div>
     </div>
   </div>
