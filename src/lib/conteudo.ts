@@ -200,8 +200,15 @@ export const MODELOS = {
   selo: "Galeria de modelos",
   numero: "140",
   numeroRotulo: "modelos de Agente iA prontos para usar",
+  numeroApoio: "Cada um já nasce sabendo o que perguntar, o que não pode prometer e a hora de chamar a equipe.",
+  agentes: [
+    { nome: "Lia", foto: "/agentes/mulher-jovem-06.webp" },
+    { nome: "Caio", foto: "/agentes/homem-jovem-01.webp" },
+    { nome: "Isa", foto: "/agentes/mulher-adulta-03.webp" },
+    { nome: "Rogério", foto: "/agentes/homem-jovem-03.webp" },
+  ],
   titulo: ["Seu agente já vem", "pronto para o", "seu segmento."],
-  sub: "Você não começa do zero. Escolhe o modelo feito para o seu tipo de negócio, coloca o nome, o tom e o que a sua empresa vende, e ele já pode atender no mesmo dia. Cada um sabe o que perguntar, o que não pode prometer e a hora de chamar alguém da equipe.",
+  sub: "Você não começa do zero. Escolhe o modelo feito para o seu tipo de negócio, coloca o nome, o tom e o que a sua empresa vende, e ele já pode atender no mesmo dia.",
   segmentosTitulo: "Para todos os segmentos",
   segmentos: [
     { icone: "UtensilsCrossed", nome: "Alimentação" },
@@ -218,15 +225,20 @@ export const MODELOS = {
   ],
   funcoesTitulo: "Agentes especializados em",
   funcoes: [
-    { icone: "DoorOpen", nome: "Recepção" },
-    { icone: "TrendingUp", nome: "Vendas" },
-    { icone: "CalendarCheck", nome: "Agendamento" },
-    { icone: "MessagesSquare", nome: "Atendimento" },
-    { icone: "LifeBuoy", nome: "Suporte" },
-    { icone: "Wallet", nome: "Cobrança" },
-    { icone: "HeartHandshake", nome: "Pós-venda" },
+    { icone: "DoorOpen", nome: "Recepção", texto: "Recebe e encaminha" },
+    { icone: "TrendingUp", nome: "Vendas", texto: "Qualifica e fecha" },
+    { icone: "CalendarCheck", nome: "Agendamento", texto: "Marca na agenda" },
+    { icone: "MessagesSquare", nome: "Atendimento", texto: "Tira as dúvidas" },
+    { icone: "LifeBuoy", nome: "Suporte", texto: "Resolve e registra" },
+    { icone: "Wallet", nome: "Cobrança", texto: "Lembra sem constranger" },
+    { icone: "HeartHandshake", nome: "Pós-venda", texto: "Cuida e pede indicação" },
   ],
-  fecho: ["Um hub completo de agentes.", "Escolha, ajuste e publique."],
+  passosTitulo: ["Um hub completo de agentes.", "Pronto em três passos."],
+  passos: [
+    { num: "01", icone: "MousePointerClick", nome: "Escolha", texto: "Filtre a galeria pelo seu segmento e pela função. Converse com o modelo antes de usar." },
+    { num: "02", icone: "SlidersHorizontal", nome: "Ajuste", texto: "Nome, tom da marca e o que a sua empresa vende. Sem programador." },
+    { num: "03", icone: "Rocket", nome: "Aplique", texto: "Publique na sua linha do WhatsApp e ele começa a atender." },
+  ],
 };
 
 export const MEMORIA = {
