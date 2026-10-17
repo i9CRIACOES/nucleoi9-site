@@ -2,6 +2,9 @@
 import Secao from "../Secao.astro";
 import Titulo from "../Titulo.astro";
 import { CLIENTES } from "../../lib/conteudo";
+
+const metade = Math.ceil(CLIENTES.logos.length / 2);
+const fileiras = [CLIENTES.logos.slice(0, metade), CLIENTES.logos.slice(metade)];
 ---
 
 <Secao id="clientes" class="bg-white">
@@ -9,7 +12,21 @@ import { CLIENTES } from "../../lib/conteudo";
     <Titulo linhas={CLIENTES.titulo} />
     <p class="garrafal mt-4 text-2xl text-brand" data-anim="sobe">{CLIENTES.sub}</p>
   </div>
-  <ul class="grid grid-cols-3 gap-2.5 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8" data-anim-grupo>
+  {/* No celular, duas esteiras que andam sozinhas (param no toque). */}
+  <div class="-mx-[clamp(16px,4vw,40px)] flex flex-col gap-2.5 overflow-hidden lg:hidden" aria-label="Logos de clientes" data-anim="sobe">
+    {fileiras.map((fila, f) => (
+      <div class:list={["esteira", f % 2 === 1 && "esteira-inversa"]} style={`--duracao:${Math.round(fila.length * 2.6)}s`}>
+        {[0, 1].map((copia) => (
+          fila.map((l) => (
+            <div class="logo-cliente flex size-24 shrink-0 items-center justify-center overflow-hidden rounded-card border border-line bg-white p-3" title={l.nome} data-copia={copia === 1 ? "" : undefined} aria-hidden={copia === 1 ? "true" : undefined}>
+              <img src={l.arquivo} alt={copia === 1 ? "" : l.nome} loading="lazy" width="225" height="225" class="h-full w-full object-contain" />
+            </div>
+          ))
+        ))}
+      </div>
+    ))}
+  </div>
+  <ul class="hidden gap-2.5 lg:grid lg:grid-cols-6 xl:grid-cols-8" data-anim-grupo>
     {CLIENTES.logos.map((l) => (
       <li class="logo-cliente flex h-24 items-center justify-center overflow-hidden rounded-card border border-line bg-white p-3" data-anim="cartao" title={l.nome}>
         <img src={l.arquivo} alt={l.nome} loading="lazy" width="225" height="225" class="h-full w-full object-contain" />

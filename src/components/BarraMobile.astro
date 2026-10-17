@@ -1,27 +1,97 @@
 ---
-/** No celular o menu lateral vira uma barra inferior com cinco atalhos. */
+/**
+ * No celular o menu lateral vira uma barra inferior: quatro atalhos fixos e
+ * um quinto lugar que mostra a seção atual (quando ela não é um dos quatro)
+ * e abre a folha com todas as seções. A barra some ao rolar para baixo e
+ * volta ao subir (scripts/site.ts, com a regra em lib/menu-mobile.ts).
+ */
 import Icone from "./Icone.astro";
-import { MENU } from "../lib/conteudo";
+import { HERO, MENU } from "../lib/conteudo";
+import { FIXOS } from "../lib/menu-mobile";
 
-const atalhos = MENU.filter((m) => ["inicio", "painel", "solucoes", "planos", "faq"].includes(m.id));
+const fixos = FIXOS.map((id) => MENU.find((m) => m.id === id)!);
+const restantes = MENU.filter((m) => !(FIXOS as readonly string[]).includes(m.id));
 ---
 
 <nav
+  id="barra-mobile"
   aria-label="Atalhos"
-  class="fixed inset-x-0 bottom-0 z-40 border-t border-sidebar-line bg-sidebar pb-[env(safe-area-inset-bottom)] text-sidebar-fg lg:hidden"
+  class="fixed inset-x-0 bottom-0 z-40 border-t border-sidebar-line bg-sidebar/95 pb-[env(safe-area-inset-bottom)] text-sidebar-fg backdrop-blur transition-transform duration-300 lg:hidden [&.escondida]:translate-y-full"
 >
   <ul class="grid grid-cols-5">
-    {atalhos.map((item) => (
+    {fixos.map((item) => (
       <li>
         <a
           href={`#${item.id}`}
           data-menu={item.id}
-          class="flex flex-col items-center gap-0.5 py-2 text-[10px] font-medium aria-[current=true]:text-brand-light"
+          class="flex min-h-14 flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-medium aria-[current=true]:text-brand-light"
         >
           <Icone nome={item.icone} class="size-5" />
           {item.label}
         </a>
       </li>
     ))}
+    <li>
+      <button
+        type="button"
+        id="barra-mobile-quinto"
+        aria-controls="menu-mobile-folha"
+        aria-expanded="false"
+        class="flex min-h-14 w-full flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-medium aria-[current=true]:text-brand-light"
+      >
+        <span data-quinto="" class="flex flex-col items-center gap-0.5">
+          <Icone nome="LayoutGrid" class="size-5" />
+          Mais
+        </span>
+        {restantes.map((item) => (
+          <span data-quinto={item.id} class="flex flex-col items-center gap-0.5" hidden>
+            <Icone nome={item.icone} class="size-5" />
+            {item.label}
+          </span>
+        ))}
+      </button>
+    </li>
   </ul>
 </nav>
+
+<div id="menu-mobile-folha" class="fixed inset-0 z-50 lg:hidden" hidden>
+  <button type="button" data-fecha-folha class="absolute inset-0 bg-navy-ink/60 backdrop-blur-[2px]" aria-label="Fechar o menu"></button>
+  <div
+    class="absolute inset-x-0 bottom-0 max-h-[85svh] overflow-y-auto rounded-t-[1.75rem] bg-white pb-[max(env(safe-area-inset-bottom),1rem)] shadow-soft transition-transform duration-300 [.fechando_&]:translate-y-full"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Todas as seções do site"
+  >
+    <div class="mx-auto mt-3 h-1 w-10 rounded-full bg-line"></div>
+    <div class="flex items-center justify-between px-5 pt-3">
+      <p class="text-sm font-semibold text-navy">Ir para</p>
+      <button type="button" data-fecha-folha class="flex size-9 items-center justify-center rounded-full bg-canvas text-navy" aria-label="Fechar">
+        <Icone nome="X" class="size-4" />
+      </button>
+    </div>
+    <ul class="grid grid-cols-3 gap-2 px-4 pt-3">
+      {MENU.map((item) => (
+        <li>
+          <a
+            href={`#${item.id}`}
+            data-folha-item={item.id}
+            class="flex min-h-[4.5rem] flex-col items-center justify-center gap-1.5 rounded-xl border border-line bg-canvas px-2 py-3 text-center text-[11px] font-medium text-navy aria-[current=true]:border-brand aria-[current=true]:bg-chip aria-[current=true]:text-brand"
+          >
+            <Icone nome={item.icone} class="size-5" />
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="mt-4 flex gap-2 px-4">
+      <button type="button" data-acionar class="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-brand text-sm font-semibold text-white">
+        <Icone nome="Zap" class="size-4" />
+        {HERO.acionar}
+      </button>
+      <a href="/entrar" class="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-line text-sm font-semibold text-navy">
+        <Icone nome="LogIn" class="size-4" />
+        {HERO.entrar}
+      </a>
+    </div>
+  </div>
+</div>

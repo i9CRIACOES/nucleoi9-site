@@ -11,11 +11,11 @@ import { PLANOS, HERO } from "../../lib/conteudo";
     <p class="mt-5 text-lg text-muted" data-anim="sobe">{PLANOS.sub}</p>
   </div>
 
-  <ul class="grid gap-5 lg:grid-cols-3" data-anim-grupo>
+  <ul class="carrossel grid gap-5 lg:grid-cols-3 [--slide:86%]" data-anim-grupo data-carrossel-inicio="1">
     {PLANOS.itens.map((p) => (
       <li
         class:list={[
-          "relative flex flex-col rounded-panel border bg-white p-7 shadow-card",
+          "relative flex flex-col rounded-panel border bg-white p-6 shadow-card sm:p-7",
           p.destaque ? "border-brand ring-4 ring-brand/10 lg:-my-3 lg:py-10" : "border-line",
         ]}
         data-anim="cartao"

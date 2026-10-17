@@ -43,7 +43,7 @@ import MontarAgente from "../../react/MontarAgente";
     </div>
   </div>
 
-  <ul class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5" data-anim-grupo>
+  <ul class="carrossel mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5 [--slide:74%]" data-anim-grupo>
     {AGENTES.pontos.map((p) => (
       <li class="rounded-card border border-white/10 bg-white/5 p-4" data-anim="cartao">
         <div class="mb-2 flex items-center gap-2 text-brand-light">
@@ -66,7 +66,7 @@ import MontarAgente from "../../react/MontarAgente";
         <MontarAgente client:visible={{ rootMargin: "200px" }} />
       </div>
 
-      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1" data-anim-grupo>
+      <ul class="carrossel grid gap-3 sm:grid-cols-2 lg:grid-cols-1 [--slide:84%]" data-anim-grupo>
         {AGENTES.montar.argumentos.map((a) => (
           <li class="flex gap-3 rounded-card border border-white/10 bg-white/5 p-4" data-anim="cartao">
             <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand/25 text-brand-light"><Icone nome={a.icone} class="size-4.5" /></span>
